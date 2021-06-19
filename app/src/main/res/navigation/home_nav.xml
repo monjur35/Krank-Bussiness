@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.krankbusiness.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/loanFragment"
+        android:name="com.example.krankbusiness.LoanFragment"
+        android:label="fragment_loan"
+        tools:layout="@layout/fragment_loan" />
+    <fragment
+        android:id="@+id/todayOrderFragment"
+        android:name="com.example.krankbusiness.TodayOrderFragment"
+        android:label="fragment_today_order"
+        tools:layout="@layout/fragment_today_order" />
+    <fragment
+        android:id="@+id/expenseFragment"
+        android:name="com.example.krankbusiness.ExpenseFragment"
+        android:label="fragment_expense"
+        tools:layout="@layout/fragment_expense" />
+    <fragment
+        android:id="@+id/addProducrFragment"
+        android:name="com.example.krankbusiness.AddProducrFragment"
+        android:label="fragment_add_producr"
+        tools:layout="@layout/fragment_add_producr" />
+</navigation>
