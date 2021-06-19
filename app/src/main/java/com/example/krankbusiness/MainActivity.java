@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().hide();
 
         topAnim= AnimationUtils.loadAnimation(this,R.anim.top_anim);
         bottomAnim= AnimationUtils.loadAnimation(this,R.anim.bottom_anim);

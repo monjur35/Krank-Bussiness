@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/dashboardMenu"
+    <item android:id="@+id/dashboardFragment"
         android:title="Dashboard"
         android:icon="@drawable/ic_dashboard"/>
 
-    <item android:id="@+id/loanMenu"
+    <item android:id="@+id/loanFragment"
         android:title="Loan"
         android:icon="@drawable/ic_loan"/>
 
-    <item android:id="@+id/today_orderMenu"
+    <item android:id="@+id/todayOrderFragment"
         android:title="Today"
         android:icon="@drawable/ic_today_order"/>
-    <item android:id="@+id/expenseMenu"
+    <item android:id="@+id/expenseFragment"
         android:title="Expense"
         android:icon="@drawable/ic_expense"/>
 
-    <item android:id="@+id/addProductMenu"
+    <item android:id="@+id/addProducrFragment"
     android:title="Add product"
     android:icon="@drawable/ic_add_product"/>
 
