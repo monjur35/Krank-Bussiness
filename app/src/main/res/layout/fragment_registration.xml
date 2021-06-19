@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/ic_black_krank_01"
+        android:layout_marginTop="-50dp"
+        android:id="@+id/logo_text"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo_text"
+        android:text="Registration"
+        android:layout_marginTop="-100dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/new_rocker"
+        android:textSize="20sp"
+        android:id="@+id/registrionText"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/registrionText"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/companyName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:elevation="5dp"
+            android:background="@drawable/edit_text_style"
+            android:fontFamily="@font/new_rocker"
+            android:hint="Company Name"
+            android:inputType="textEmailAddress"
+            android:padding="10dp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/mobile"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:elevation="5dp"
+            android:background="@drawable/edit_text_style"
+            android:fontFamily="@font/new_rocker"
+            android:hint="Mobile"
+            android:inputType="number"
+            android:padding="10dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/loginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:elevation="5dp"
+            android:background="@drawable/edit_text_style"
+            android:fontFamily="@font/new_rocker"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="10dp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/loginpass"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:elevation="5dp"
+            android:background="@drawable/edit_text_style"
+            android:fontFamily="@font/new_rocker"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="10dp" />
+
+
+
+
+    </LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registration"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="50dp"
+        android:paddingHorizontal="50dp"
+        android:fontFamily="@font/new_rocker"
+        android:textAllCaps="false"
+        android:id="@+id/reginBtn"/>
+
+</RelativeLayout>

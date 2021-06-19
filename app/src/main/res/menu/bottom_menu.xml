@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/dashboardMenu"
+        android:title="Dashboard"
+        android:icon="@drawable/ic_dashboard"/>
+
+    <item android:id="@+id/loanMenu"
+        android:title="Loan"
+        android:icon="@drawable/ic_loan"/>
+
+    <item android:id="@+id/today_orderMenu"
+        android:title="Today"
+        android:icon="@drawable/ic_today_order"/>
+    <item android:id="@+id/expenseMenu"
+        android:title="Expense"
+        android:icon="@drawable/ic_expense"/>
+
+    <item android:id="@+id/addProductMenu"
+    android:title="Add product"
+    android:icon="@drawable/ic_add_product"/>
+
+
+
+</menu>

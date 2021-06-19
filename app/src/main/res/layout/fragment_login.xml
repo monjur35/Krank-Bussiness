@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginFragment">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/ic_black_krank_01"
+        android:id="@+id/logo_text"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo_text"
+        android:text="Log in"
+        android:layout_marginTop="-100dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/new_rocker"
+        android:textSize="20sp"
+        android:id="@+id/logIn"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/logo_text"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="-50dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/loginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:elevation="5dp"
+            android:background="@drawable/edit_text_style"
+            android:fontFamily="@font/new_rocker"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="10dp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/loginpass"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:elevation="5dp"
+            android:background="@drawable/edit_text_style"
+            android:fontFamily="@font/new_rocker"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="10dp" />
+
+
+
+
+    </LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log in"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="60dp"
+        android:paddingHorizontal="50dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/new_rocker"
+        android:textAllCaps="false"
+        android:id="@+id/loginBtn"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Need account?Registration"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="@font/new_rocker"
+        android:textSize="20sp"
+        android:layout_marginBottom="35dp"
+        android:clickable="true"
+        android:id="@+id/registratinText"
+        android:focusable="true" />
+
+</RelativeLayout>
