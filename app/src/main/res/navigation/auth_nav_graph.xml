@@ -19,4 +19,9 @@
         android:name="com.example.krankbusiness.RegistrationFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" />
+    <fragment
+        android:id="@+id/initialDataFragment"
+        android:name="com.example.krankbusiness.InitialDataFragment"
+        android:label="fragment_initial_data"
+        tools:layout="@layout/fragment_initial_data" />
 </navigation>

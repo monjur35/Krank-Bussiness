@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationFragment">
+    tools:context=".InitialDataFragment">
 
     <ImageView
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/logo_text"
-        android:text="Registration"
+        android:text="Initial data"
         android:layout_marginTop="-100dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/new_rocker"
@@ -32,7 +32,7 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="10dp">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/companyName"
+            android:id="@+id/capital"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="5dp"
@@ -41,11 +41,11 @@
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
             android:fontFamily="@font/new_rocker"
-            android:hint="Company Name"
-            android:inputType="textEmailAddress"
+            android:hint="Present Capital"
+            android:inputType="numberDecimal"
             android:padding="10dp" />
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/mobile"
+            android:id="@+id/loan"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="5dp"
@@ -54,12 +54,12 @@
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
             android:fontFamily="@font/new_rocker"
-            android:hint="Mobile"
+            android:hint="Total Loan"
             android:inputType="number"
             android:padding="10dp" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/loginEmail"
+            android:id="@+id/presentCash"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="5dp"
@@ -68,7 +68,7 @@
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
             android:fontFamily="@font/new_rocker"
-            android:hint="Email"
+            android:hint="Present Cash"
             android:inputType="textEmailAddress"
             android:padding="10dp" />
         <com.google.android.material.textfield.TextInputEditText
@@ -81,8 +81,21 @@
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
             android:fontFamily="@font/new_rocker"
-            android:hint="Password"
-            android:inputType="textPassword"
+            android:hint="Total profit"
+            android:inputType="numberDecimal"
+            android:padding="10dp" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/totalExpense"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:elevation="5dp"
+            android:background="@drawable/edit_text_style"
+            android:fontFamily="@font/new_rocker"
+            android:hint="Total Expense"
+            android:inputType="numberDecimal"
             android:padding="10dp" />
 
 
@@ -94,14 +107,14 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registration"
+        android:text="Submit"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="50dp"
         android:paddingHorizontal="50dp"
-        android:textSize="18sp"
         android:fontFamily="@font/new_rocker"
         android:textAllCaps="false"
+        android:textSize="18sp"
         android:id="@+id/reginBtn"/>
 
 </RelativeLayout>
