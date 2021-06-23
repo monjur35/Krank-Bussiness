@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.krankbusiness.LoginFragment"
+        android:name="com.example.krankbusiness.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -16,12 +16,18 @@
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.example.krankbusiness.RegistrationFragment"
+        android:name="com.example.krankbusiness.fragments.RegistrationFragment"
         android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" />
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_initialDataFragment"
+            app:destination="@id/initialDataFragment"
+            app:popUpTo="@id/registrationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/initialDataFragment"
-        android:name="com.example.krankbusiness.InitialDataFragment"
+        android:name="com.example.krankbusiness.fragments.InitialDataFragment"
         android:label="fragment_initial_data"
         tools:layout="@layout/fragment_initial_data" />
 </navigation>

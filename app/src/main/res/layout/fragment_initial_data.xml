@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InitialDataFragment">
+    tools:context=".fragments.InitialDataFragment">
 
     <ImageView
         android:layout_width="match_parent"
@@ -72,7 +72,7 @@
             android:inputType="textEmailAddress"
             android:padding="10dp" />
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/loginpass"
+            android:id="@+id/profit"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="5dp"
@@ -115,6 +115,19 @@
         android:fontFamily="@font/new_rocker"
         android:textAllCaps="false"
         android:textSize="18sp"
-        android:id="@+id/reginBtn"/>
+        android:id="@+id/submit"/>
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.ChasingDots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/submit"
+        android:padding="10dp"
+        android:visibility="invisible"
+        app:SpinKit_Color="@color/red" />
 
 </RelativeLayout>

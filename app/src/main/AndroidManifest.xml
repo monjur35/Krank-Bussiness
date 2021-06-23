@@ -9,9 +9,9 @@
         android:roundIcon="@drawable/ic_black_krank_01"
         android:supportsRtl="true"
         android:theme="@style/Theme.KrankBusiness">
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".AuthenticationActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activitys.HomeActivity"></activity>
+        <activity android:name=".activitys.AuthenticationActivity" />
+        <activity android:name=".activitys.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

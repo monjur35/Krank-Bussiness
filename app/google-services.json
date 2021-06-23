@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "732268737823",
+    "firebase_url": "https://loginlogout-439e1.firebaseio.com",
+    "project_id": "loginlogout-439e1",
+    "storage_bucket": "loginlogout-439e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732268737823:android:3e47dcc1005784419e2c2a",
+        "android_client_info": {
+          "package_name": "com.example.krankbusiness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732268737823-bctg540usraet65mu2kp34vhgr8itpa4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW5H350VLaU1kK7v3ETRqUDfw4ZgS3hOc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732268737823-bctg540usraet65mu2kp34vhgr8itpa4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732268737823:android:34d67e4a0995487b9e2c2a",
+        "android_client_info": {
+          "package_name": "com.example.onlinevotingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732268737823-bctg540usraet65mu2kp34vhgr8itpa4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW5H350VLaU1kK7v3ETRqUDfw4ZgS3hOc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732268737823-bctg540usraet65mu2kp34vhgr8itpa4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,10 @@
-package com.example.krankbusiness;
+package com.example.krankbusiness.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.krankbusiness.R;
 
 public class AuthenticationActivity extends AppCompatActivity {
 

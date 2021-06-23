@@ -1,4 +1,4 @@
-package com.example.krankbusiness;
+package com.example.krankbusiness.fragments;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.krankbusiness.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TodayOrderFragment#newInstance} factory method to
+ * Use the {@link ExpenseFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TodayOrderFragment extends Fragment {
+public class ExpenseFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class TodayOrderFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public TodayOrderFragment() {
+    public ExpenseFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class TodayOrderFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment TodayOrderFragment.
+     * @return A new instance of fragment ExpenseFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TodayOrderFragment newInstance(String param1, String param2) {
-        TodayOrderFragment fragment = new TodayOrderFragment();
+    public static ExpenseFragment newInstance(String param1, String param2) {
+        ExpenseFragment fragment = new ExpenseFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class TodayOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_today_order, container, false);
+        return inflater.inflate(R.layout.fragment_expense, container, false);
     }
 }
