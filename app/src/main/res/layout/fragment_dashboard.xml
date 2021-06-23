@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.DashboardFragment">
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -17,7 +18,8 @@
             android:id="@+id/dash_toolbar">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -27,6 +29,9 @@
                     android:textColor="@color/red"
                     android:id="@+id/dashBoardLabel"
                     android:layout_gravity="center"/>
+
+
+
             </LinearLayout></com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -47,7 +52,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/jatrirRailwayShongkrantoId"
                 android:layout_row="0"
                 android:layout_column="0"
                 android:layout_gravity="fill"
@@ -96,7 +100,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/ovijogProtikar"
                 android:layout_row="1"
                 android:layout_column="0"
                 android:layout_gravity="fill"
@@ -145,7 +148,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/onlineTicket"
                 android:background="@color/teal_700"
                 android:layout_row="1"
                 android:layout_column="1"
@@ -195,7 +197,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/railpathMontronaloy"
                 android:layout_row="2"
                 android:layout_column="1"
                 android:layout_gravity="fill"
@@ -276,6 +277,7 @@
                         android:textColor="@color/red"
                         android:layout_marginTop="4dp"
                         android:text="00"
+                        android:id="@+id/profit"
                         android:textSize="18sp"
                         android:fontFamily="@font/new_rocker" />
 
@@ -288,7 +290,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/RailwaySite"
                 android:layout_row="2"
                 android:layout_column="0"
                 android:layout_gravity="fill"
@@ -335,7 +336,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/uateLogInfo"
                 android:layout_row="3"
                 android:layout_column="1"
                 android:layout_gravity="fill"
@@ -383,7 +383,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/bdRailwaySite"
                 android:layout_row="3"
                 android:layout_column="0"
                 android:layout_gravity="fill"
@@ -433,6 +432,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/barChart"
         android:layout_below="@+id/linLayout"/>
+
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Wave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        app:SpinKit_Color="@color/red" />
+
+
 
     
 
