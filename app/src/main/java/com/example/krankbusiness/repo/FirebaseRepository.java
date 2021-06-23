@@ -15,11 +15,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
 
 public class FirebaseRepository {
     private FirebaseDatabase firebaseDatabase;
+    private FirebaseFirestore firebaseFirestore;
     private String currentUser;
     public MutableLiveData<String> errorMsg;
 
@@ -27,6 +29,7 @@ public class FirebaseRepository {
     public FirebaseRepository() {
         firebaseDatabase=FirebaseDatabase.getInstance();
         currentUser= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        firebaseFirestore=FirebaseFirestore.getInstance();
     }
 
     public MutableLiveData<UserData>fetchUserData(){
