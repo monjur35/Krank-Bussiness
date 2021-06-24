@@ -12,6 +12,8 @@ import com.example.krankbusiness.repo.FirebaseRepository;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 public class KrankViewModel extends AndroidViewModel {
 
     private FirebaseRepository firebaseRepository;
@@ -30,6 +32,10 @@ public class KrankViewModel extends AndroidViewModel {
 
     public void addNewProduct(Product product){
         firebaseRepository.addNewProduct(product);
+    }
+
+    public MutableLiveData<List<Product>>getAllProductList(){
+        return firebaseRepository.getAllProductList();
     }
 
 }

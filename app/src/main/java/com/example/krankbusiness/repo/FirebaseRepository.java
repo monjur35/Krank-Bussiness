@@ -1,6 +1,7 @@
 package com.example.krankbusiness.repo;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.krankbusiness.models.Product;
@@ -18,10 +19,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Objects;
 
 public class FirebaseRepository {
@@ -77,5 +82,22 @@ public class FirebaseRepository {
             }
         });
 
+    }
+
+    public MutableLiveData<List<Product>>getAllProductList(){
+        MutableLiveData<List<Product>>listMutableLiveData=new MutableLiveData<>();
+        firebaseFirestore.collection(PRODUCTS_COLLECTION).whereEqualTo("uId",currentUser).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                if (error==null){
+                    listMutableLiveData.postValue(value.toObjects(Product.class));
+                }
+                else {
+                    return;
+                }
+            }
+        });
+
+        return listMutableLiveData;
     }
 }
