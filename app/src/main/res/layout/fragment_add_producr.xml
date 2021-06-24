@@ -47,14 +47,17 @@
                 android:layout_height="match_parent"
                 />
 
-            <ProgressBar
-                android:id="@+id/progressbar"
+            <com.github.ybq.android.spinkit.SpinKitView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/spin_kit"
+                style="@style/SpinKitView.Wave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/productRv"
+                android:padding="10dp"
+                android:visibility="invisible"
                 android:layout_centerHorizontal="true"
-                android:theme="@style/ProgressBarTheme"
-                android:visibility="invisible" />
+                android:layout_below="@+id/productRv"
+                app:SpinKit_Color="@color/red" />
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
