@@ -3,8 +3,10 @@ package com.example.krankbusiness.repo;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.krankbusiness.models.Product;
 import com.example.krankbusiness.models.UserData;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,15 +17,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 public class FirebaseRepository {
     private FirebaseDatabase firebaseDatabase;
     private FirebaseFirestore firebaseFirestore;
     private String currentUser;
-    public MutableLiveData<String> errorMsg;
+    public MutableLiveData<String> errorMsg=new MutableLiveData<>();
+
+
+    private static String PRODUCTS_COLLECTION="Products";
 
 
     public FirebaseRepository() {
@@ -51,9 +59,23 @@ public class FirebaseRepository {
         });
 
 
-
-
-
         return userDataMutableLiveData;
+    }
+
+
+    public void addNewProduct(Product product){
+
+
+        final DocumentReference documentReference=firebaseFirestore.collection(PRODUCTS_COLLECTION).document();
+        String productID=documentReference.getId();
+        product.setProductId(productID);
+
+        documentReference.set(product).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+
+            }
+        });
+
     }
 }

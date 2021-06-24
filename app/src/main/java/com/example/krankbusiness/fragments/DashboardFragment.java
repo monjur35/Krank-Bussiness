@@ -70,6 +70,15 @@ public class DashboardFragment extends Fragment {
 
                     binding.spinKit.setVisibility(View.INVISIBLE);
                 }
+
+
+
+                if (krankViewModel.getErrorMsg()!=null){
+                    String error= krankViewModel.getErrorMsg().toString();
+                    Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+                    binding.spinKit.setVisibility(View.INVISIBLE);
+                }
+
             }
         });
 

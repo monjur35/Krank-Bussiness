@@ -1,6 +1,7 @@
 package com.example.krankbusiness.models;
 
 public class Product {
+    private String uId;
     private String productId;
     private String productName;
     private int productPrice;
@@ -15,8 +16,9 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productId, String productName, int productPrice, int production_cost,
-                   int mSizeInStock, int LSizeInStock, int xlSizeInStock, int xxlSizeInStock, int xxxlSizeInStock, int totalInStock) {
+    public Product(String uId, String productId, String productName, int productPrice, int production_cost, int mSizeInStock,
+                   int LSizeInStock, int xlSizeInStock, int xxlSizeInStock, int xxxlSizeInStock, int totalInStock) {
+        this.uId = uId;
         this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;
@@ -27,6 +29,14 @@ public class Product {
         this.xxlSizeInStock = xxlSizeInStock;
         this.xxxlSizeInStock = xxxlSizeInStock;
         this.totalInStock = totalInStock;
+    }
+
+    public String getuId() {
+        return uId;
+    }
+
+    public void setuId(String uId) {
+        this.uId = uId;
     }
 
     public String getProductId() {
