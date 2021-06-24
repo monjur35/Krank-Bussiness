@@ -38,4 +38,8 @@ public class KrankViewModel extends AndroidViewModel {
         return firebaseRepository.getAllProductList();
     }
 
+    public MutableLiveData<Product>getProductDetails(String productId){
+        return firebaseRepository.fetchProductDetailById(productId);
+    }
+
 }

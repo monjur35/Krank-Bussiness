@@ -2,6 +2,7 @@ package com.example.krankbusiness.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,11 +48,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         if (product.getTotalInStock()==0){
             holder.card.setBackgroundColor(Color.parseColor("#FF8585"));
         }
+        String productId=product.getProductId();
+        Bundle bundle=new Bundle();
+        bundle.putString("productId",productId);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.action_addProducrFragment_to_productDetailsFragment);
+                Navigation.findNavController(v).navigate(R.id.action_addProducrFragment_to_productDetailsFragment,bundle);
             }
         });
 

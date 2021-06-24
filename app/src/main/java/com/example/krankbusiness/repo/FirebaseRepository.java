@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -99,5 +100,24 @@ public class FirebaseRepository {
         });
 
         return listMutableLiveData;
+    }
+
+    public MutableLiveData<Product>fetchProductDetailById(String productId){
+        MutableLiveData<Product>productMutableLiveData=new MutableLiveData<>();
+        firebaseFirestore.collection(PRODUCTS_COLLECTION).document(productId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable DocumentSnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                if (error!=null){
+                    errorMsg.postValue(error.getMessage());
+                    return;
+                }else {
+                    if (value!=null){
+                        productMutableLiveData.postValue(value.toObject(Product.class));
+                    }
+
+                }
+            }
+        });
+        return productMutableLiveData;
     }
 }
