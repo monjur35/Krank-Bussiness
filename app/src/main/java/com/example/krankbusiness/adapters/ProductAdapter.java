@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.krankbusiness.R;
@@ -47,7 +48,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             holder.card.setBackgroundColor(Color.parseColor("#FF8585"));
         }
 
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_addProducrFragment_to_productDetailsFragment);
+            }
+        });
 
     }
 

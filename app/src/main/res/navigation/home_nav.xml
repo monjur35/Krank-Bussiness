@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_addProducrFragment_to_inputProductFragment"
             app:destination="@id/inputProductFragment" />
+        <action
+            android:id="@+id/action_addProducrFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/inputProductFragment"
@@ -45,4 +48,9 @@
             app:popUpTo="@id/inputProductFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.krankbusiness.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" />
 </navigation>

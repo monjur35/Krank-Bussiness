@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_dorttt_01"
+    tools:context=".ProductDetailsFragment">
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/productNameindetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/new_rocker"
+        android:text="Product Name"
+        android:textColor="@color/red"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/productNameindetails"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/new_rocker"
+                android:text="Total in Stock : "
+                android:textSize="18sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/totalinStock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/new_rocker"
+                android:text="00 Pcs "
+                android:textColor="@color/red"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/new_rocker"
+                android:text="Selling Price : "
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sellingPriceinDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/new_rocker"
+                android:text="00"
+                android:textColor="@color/textColor"
+                android:textSize="18sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/new_rocker"
+                android:text="BDT"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/new_rocker"
+                android:text="Production Cost : "
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/productionCostindetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/new_rocker"
+                android:text="00"
+                android:textColor="@color/textColor"
+                android:textSize="18sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/new_rocker"
+                android:text="BDT"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/new_rocker"
+                android:text="M Size : "
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mSizeee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/new_rocker"
+                android:text="00 "
+                android:textColor="@color/textColor"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/new_rocker"
+                android:text="L Size : "
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lSizeee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/new_rocker"
+                android:text="00 "
+                android:textColor="@color/textColor"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/new_rocker"
+                android:text="Xl Size : "
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/xlSizeee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/new_rocker"
+                android:text="00 "
+                android:textColor="@color/textColor"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/new_rocker"
+                android:text="2Xl Size : "
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/xxlSizeee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/new_rocker"
+                android:text="00 "
+                android:textColor="@color/textColor"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/new_rocker"
+                android:text="3Xl Size : "
+                android:textSize="18sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/xxxlSizeee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:enabled="false"
+                android:fontFamily="@font/new_rocker"
+                android:text="00 "
+                android:textColor="@color/textColor"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Wave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        android:visibility="invisible"
+        app:SpinKit_Color="@color/red" />
+
+    <Button
+        android:id="@+id/editBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/new_rocker"
+        android:paddingHorizontal="50dp"
+        android:text="Edit"
+        android:textAllCaps="false"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/updateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/new_rocker"
+        android:paddingHorizontal="50dp"
+        android:text="Update"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rotation="90"
+        android:src="@drawable/ic_dorttt_01" />
+
+
+</RelativeLayout>
