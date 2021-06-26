@@ -120,4 +120,6 @@ public class FirebaseRepository {
         });
         return productMutableLiveData;
     }
+
+    //public
 }

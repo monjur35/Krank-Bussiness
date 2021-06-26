@@ -34,7 +34,6 @@ public class ProductDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentProductDetailsBinding.inflate(inflater);
         krankViewModel = new ViewModelProvider(getActivity()).get(KrankViewModel.class);
-
         return binding.getRoot();
     }
 
@@ -52,6 +51,7 @@ public class ProductDetailsFragment extends Fragment {
                 @Override
                 public void onChanged(Product product) {
                     if (product != null) {
+
                         binding.productNameindetails.setText(product.getProductName());
                         binding.totalinStock.setText(String.valueOf(product.getTotalInStock()));
                         binding.sellingPriceinDetails.setText(String.valueOf(product.getProductPrice()));
@@ -62,9 +62,12 @@ public class ProductDetailsFragment extends Fragment {
                         binding.xxlSizeee.setText(String.valueOf(product.getXxlSizeInStock()));
                         binding.xxxlSizeee.setText(String.valueOf(product.getXxxlSizeInStock()));
                         binding.spinKit.setVisibility(View.INVISIBLE);
+
                     } else {
+
                         Toast.makeText(getContext(), "Something Wrong", Toast.LENGTH_SHORT).show();
                         binding.spinKit.setVisibility(View.INVISIBLE);
+
                     }
                 }
             });
@@ -79,6 +82,8 @@ public class ProductDetailsFragment extends Fragment {
                 binding.xxlSizeee.setEnabled(true);
                 binding.xxxlSizeee.setEnabled(true);
                 binding.mSizeee.setEnabled(true);
+                binding.sellingPriceinDetails.setEnabled(true);
+                binding.productionCostindetails.setEnabled(true);
                 binding.editBtn.setVisibility(View.INVISIBLE);
                 binding.updateBtn.setVisibility(View.VISIBLE);
             }

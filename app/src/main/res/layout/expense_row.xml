@@ -4,41 +4,81 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="10dp"
-    android:layout_marginBottom="10dp"
+    android:layout_marginBottom="8dp"
     android:clickable="true"
     android:focusable="true"
-   app:cardBackgroundColor="#F6F6F6"
+    app:cardBackgroundColor="#F6F6F6"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp">
 
     <LinearLayout
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/cardView"
+        android:background="@drawable/card_gradient_bg"
         android:orientation="vertical"
-        android:background="@drawable/product_card_bg"
         android:padding="10dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
+
             <TextView
+                android:id="@+id/expenseTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
-                android:text="Product Name : "
                 android:layout_marginRight="5dp"
+                android:fontFamily="@font/new_rocker"
+                android:text="Expense Title"
                 android:textColor="@color/textColor"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/productName"
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/new_rocker"
+                android:gravity="end"
+                android:text="12/2/21"
+                android:textColor="@color/textColor"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="40dp"
+                android:fontFamily="@font/new_rocker"
+                android:text="Amount : "
+                android:textColor="@color/textColor"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/new_rocker"
-                android:text="Iron maiden :"
+                android:text="500"
+                android:textColor="@color/textColor"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:fontFamily="@font/new_rocker"
+                android:text="BDT"
                 android:textColor="@color/textColor"
                 android:textSize="16sp" />
 
@@ -48,41 +88,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
-                android:text="Price : "
                 android:layout_marginRight="40dp"
+                android:fontFamily="@font/new_rocker"
+                android:text="Under of   :"
                 android:textColor="@color/textColor"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
-                android:text="500 bdt"
-                android:textColor="@color/textColor"
-                android:textSize="16sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
-                android:text="In Stock  :"
-                android:layout_marginRight="40dp"
-                android:textColor="@color/textColor"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/inStock"
+                android:id="@+id/undderOf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/new_rocker"
@@ -91,8 +108,6 @@
                 android:textSize="16sp" />
 
         </LinearLayout>
-
-
 
 
     </LinearLayout>
