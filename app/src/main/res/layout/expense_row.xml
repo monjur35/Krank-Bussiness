@@ -28,17 +28,18 @@
 
             <TextView
                 android:id="@+id/expenseTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginRight="5dp"
                 android:fontFamily="@font/new_rocker"
                 android:text="Expense Title"
-                android:textColor="@color/textColor"
+                android:textColor="#535353"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/date"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/new_rocker"
                 android:gravity="end"
@@ -70,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/new_rocker"
                 android:text="500"
-                android:textColor="@color/textColor"
+                android:textColor="#535353"
                 android:textSize="16sp" />
 
             <TextView
@@ -79,7 +80,7 @@
                 android:layout_marginHorizontal="10dp"
                 android:fontFamily="@font/new_rocker"
                 android:text="BDT"
-                android:textColor="@color/textColor"
+                android:textColor="#535353"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -103,8 +104,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/new_rocker"
-                android:text="00 "
-                android:textColor="@color/textColor"
+                android:text="Monjur "
+                android:textColor="#535353"
                 android:textSize="16sp" />
 
         </LinearLayout>
