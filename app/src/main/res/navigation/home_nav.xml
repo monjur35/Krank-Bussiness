@@ -24,7 +24,11 @@
         android:id="@+id/expenseFragment"
         android:name="com.example.krankbusiness.fragments.ExpenseFragment"
         android:label="fragment_expense"
-        tools:layout="@layout/fragment_expense" />
+        tools:layout="@layout/fragment_expense" >
+        <action
+            android:id="@+id/action_expenseFragment_to_addExpenseFragment"
+            app:destination="@id/addExpenseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addProducrFragment"
         android:name="com.example.krankbusiness.fragments.AddProducrFragment"
@@ -39,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/inputProductFragment"
-        android:name="com.example.krankbusiness.InputProductFragment"
+        android:name="com.example.krankbusiness.fragments.InputProductFragment"
         android:label="fragment_input_product"
         tools:layout="@layout/fragment_input_product" >
         <action
@@ -50,7 +54,16 @@
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
-        android:name="com.example.krankbusiness.ProductDetailsFragment"
+        android:name="com.example.krankbusiness.fragments.ProductDetailsFragment"
         android:label="fragment_product_details"
         tools:layout="@layout/fragment_product_details" />
+    <fragment
+        android:id="@+id/addExpenseFragment"
+        android:name="com.example.krankbusiness.fragments.AddExpenseFragment"
+        android:label="fragment_add_expense"
+        tools:layout="@layout/fragment_add_expense" >
+        <action
+            android:id="@+id/action_addExpenseFragment_to_expenseFragment"
+            app:destination="@id/expenseFragment" />
+    </fragment>
 </navigation>

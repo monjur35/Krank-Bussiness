@@ -1,4 +1,4 @@
-package com.example.krankbusiness;
+package com.example.krankbusiness.fragments;
 
 import android.os.Bundle;
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_dorttt_01"
-    tools:context=".ProductDetailsFragment">
+    tools:context=".fragments.ProductDetailsFragment">
 
 
     <com.google.android.material.textview.MaterialTextView

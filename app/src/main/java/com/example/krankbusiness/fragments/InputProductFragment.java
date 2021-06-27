@@ -1,4 +1,4 @@
-package com.example.krankbusiness;
+package com.example.krankbusiness.fragments;
 
 import android.os.Bundle;
 
@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.krankbusiness.R;
 import com.example.krankbusiness.databinding.FragmentInputProductBinding;
 import com.example.krankbusiness.models.Product;
 import com.example.krankbusiness.viewModels.KrankViewModel;

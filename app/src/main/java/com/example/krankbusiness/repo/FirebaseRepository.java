@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.krankbusiness.models.ExpenseModel;
 import com.example.krankbusiness.models.Product;
 import com.example.krankbusiness.models.UserData;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,6 +39,7 @@ public class FirebaseRepository {
 
 
     private static String PRODUCTS_COLLECTION="Products";
+    private static String EXPENSE_COLLECTION="Expense";
 
 
     public FirebaseRepository() {
@@ -121,5 +123,20 @@ public class FirebaseRepository {
         return productMutableLiveData;
     }
 
-    //public
+    public void addExpense(ExpenseModel expenseModel){
+
+
+        final DocumentReference documentReference=firebaseFirestore.collection(EXPENSE_COLLECTION).document();
+        String expId=documentReference.getId();
+        expenseModel.setExpId(expId);
+
+        documentReference.set(expenseModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+
+            }
+        });
+
+    }
+
 }

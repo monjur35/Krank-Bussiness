@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.krankbusiness.models.ExpenseModel;
 import com.example.krankbusiness.models.Product;
 import com.example.krankbusiness.models.UserData;
 import com.example.krankbusiness.repo.FirebaseRepository;
@@ -40,6 +41,9 @@ public class KrankViewModel extends AndroidViewModel {
 
     public MutableLiveData<Product>getProductDetails(String productId){
         return firebaseRepository.fetchProductDetailById(productId);
+    }
+    public void addExpense(ExpenseModel expenseModel){
+        firebaseRepository.addExpense(expenseModel);
     }
 
 }
