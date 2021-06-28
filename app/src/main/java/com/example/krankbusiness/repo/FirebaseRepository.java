@@ -1,5 +1,7 @@
 package com.example.krankbusiness.repo;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
@@ -44,7 +46,7 @@ public class FirebaseRepository {
 
     public FirebaseRepository() {
         firebaseDatabase=FirebaseDatabase.getInstance();
-        currentUser= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        currentUser= Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         firebaseFirestore=FirebaseFirestore.getInstance();
     }
 
@@ -123,9 +125,8 @@ public class FirebaseRepository {
         return productMutableLiveData;
     }
 
+
     public void addExpense(ExpenseModel expenseModel){
-
-
         final DocumentReference documentReference=firebaseFirestore.collection(EXPENSE_COLLECTION).document();
         String expId=documentReference.getId();
         expenseModel.setExpId(expId);
@@ -137,6 +138,23 @@ public class FirebaseRepository {
             }
         });
 
+    }
+
+    public MutableLiveData<List<ExpenseModel>>getAllExpense(){
+        MutableLiveData<List<ExpenseModel>>listMutableLiveData=new MutableLiveData<>();
+        firebaseFirestore.collection(EXPENSE_COLLECTION).whereEqualTo("userId",currentUser).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                if (error==null){
+                    assert value != null;
+                    listMutableLiveData.postValue(value.toObjects(ExpenseModel.class));
+                }
+                else {
+                    Log.e("TAG", "onEvent: Expemnse List "+error.getLocalizedMessage() );
+                }
+            }
+        });
+        return listMutableLiveData;
     }
 
 }

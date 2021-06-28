@@ -24,6 +24,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 public class AddExpenseFragment extends Fragment {
     private FragmentAddExpenseBinding binding;
@@ -57,6 +60,11 @@ public class AddExpenseFragment extends Fragment {
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+        Calendar cal=Calendar.getInstance();
+        SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
+        String month_name = month_date.format(cal.getTime());
+
         binding.calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override
@@ -82,7 +90,7 @@ public class AddExpenseFragment extends Fragment {
                     Toast.makeText(getContext(), "Verify all field ", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    ExpenseModel expenseModel=new ExpenseModel(uId,null,expTitle,amount,underOf,date);
+                    ExpenseModel expenseModel=new ExpenseModel(uId,null,expTitle,amount,underOf,date,month_name);
                     krankViewModel.addExpense(expenseModel);
                     Navigation.findNavController(v).navigate(R.id.action_addExpenseFragment_to_expenseFragment);
                 }

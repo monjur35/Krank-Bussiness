@@ -45,5 +45,8 @@ public class KrankViewModel extends AndroidViewModel {
     public void addExpense(ExpenseModel expenseModel){
         firebaseRepository.addExpense(expenseModel);
     }
+    public MutableLiveData<List<ExpenseModel>>getExpenseList(){
+        return firebaseRepository.getAllExpense();
+    }
 
 }

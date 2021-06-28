@@ -7,17 +7,19 @@ public class ExpenseModel {
     private String amount;
     private String underOf;
     private String date;
+    private String monthName;
 
     public ExpenseModel() {
     }
 
-    public ExpenseModel(String userId, String expId, String expTitle, String amount, String underOf, String date) {
+    public ExpenseModel(String userId, String expId, String expTitle, String amount, String underOf, String date, String monthName) {
         this.userId = userId;
         this.expId = expId;
         this.expTitle = expTitle;
         this.amount = amount;
         this.underOf = underOf;
         this.date = date;
+        this.monthName = monthName;
     }
 
     public String getUserId() {
@@ -66,5 +68,13 @@ public class ExpenseModel {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getMonthName() {
+        return monthName;
+    }
+
+    public void setMonthName(String monthName) {
+        this.monthName = monthName;
     }
 }
