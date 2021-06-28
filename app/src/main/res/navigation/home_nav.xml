@@ -14,7 +14,11 @@
         android:id="@+id/loanFragment"
         android:name="com.example.krankbusiness.fragments.LoanFragment"
         android:label="fragment_loan"
-        tools:layout="@layout/fragment_loan" />
+        tools:layout="@layout/fragment_loan" >
+        <action
+            android:id="@+id/action_loanFragment_to_addLoanFragment"
+            app:destination="@id/addLoanFragment" />
+    </fragment>
     <fragment
         android:id="@+id/todayOrderFragment"
         android:name="com.example.krankbusiness.fragments.TodayOrderFragment"
@@ -79,6 +83,17 @@
             android:id="@+id/action_addOrderFragment_to_todayOrderFragment"
             app:destination="@id/todayOrderFragment"
             app:popUpTo="@id/addOrderFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addLoanFragment"
+        android:name="com.example.krankbusiness.AddLoanFragment"
+        android:label="fragment_add_loan"
+        tools:layout="@layout/fragment_add_loan" >
+        <action
+            android:id="@+id/action_addLoanFragment_to_loanFragment"
+            app:destination="@id/loanFragment"
+            app:popUpTo="@id/addLoanFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>
