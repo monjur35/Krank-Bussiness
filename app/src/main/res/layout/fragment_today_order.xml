@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/ic_dorttt_01"
     tools:context=".fragments.TodayOrderFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -70,5 +71,12 @@
         app:tint="#ffff"
         android:id="@+id/fab"
         android:src="@drawable/ic_baseline_add_24"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_dorttt_01"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
+        android:rotation="90"/>
 
 </RelativeLayout>
