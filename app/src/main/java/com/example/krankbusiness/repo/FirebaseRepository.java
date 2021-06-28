@@ -179,9 +179,9 @@ public class FirebaseRepository {
 
     }
 
-    public MutableLiveData<List<OrderModel>>getAllOrderList(){
+    public MutableLiveData<List<OrderModel>>getAllOrderList(String date){
         MutableLiveData<List<OrderModel>>listMutableLiveData=new MutableLiveData<>();
-        firebaseFirestore.collection(ORDER_COLLECTION).whereEqualTo("userId",currentUser).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection(ORDER_COLLECTION).whereEqualTo("userId",currentUser).whereEqualTo("date",date).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
                 if (error==null){

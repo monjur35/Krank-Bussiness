@@ -23,8 +23,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class TodayOrderFragment extends Fragment {
@@ -61,8 +65,12 @@ public class TodayOrderFragment extends Fragment {
         final LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         linearLayoutManager.setReverseLayout(true);
 
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        String formattedDate = df.format(c);
 
-        krankViewModel.getOrderList().observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
+
+        krankViewModel.getOrderList(formattedDate).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
             @Override
             public void onChanged(List<OrderModel> orderModels) {
                 if (orderModels!=null){

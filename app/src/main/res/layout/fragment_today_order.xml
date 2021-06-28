@@ -71,12 +71,6 @@
         app:tint="#ffff"
         android:id="@+id/fab"
         android:src="@drawable/ic_baseline_add_24"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_dorttt_01"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="150dp"
-        android:rotation="90"/>
+
 
 </RelativeLayout>
