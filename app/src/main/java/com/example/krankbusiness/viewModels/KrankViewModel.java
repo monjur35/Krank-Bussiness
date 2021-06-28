@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.krankbusiness.models.ExpenseModel;
+import com.example.krankbusiness.models.OrderModel;
 import com.example.krankbusiness.models.Product;
 import com.example.krankbusiness.models.UserData;
 import com.example.krankbusiness.repo.FirebaseRepository;
@@ -47,6 +48,10 @@ public class KrankViewModel extends AndroidViewModel {
     }
     public MutableLiveData<List<ExpenseModel>>getExpenseList(){
         return firebaseRepository.getAllExpense();
+    }
+
+    public void addOrder(OrderModel orderModel){
+        firebaseRepository.addOrder(orderModel);
     }
 
 }

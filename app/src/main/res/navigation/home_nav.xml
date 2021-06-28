@@ -19,7 +19,11 @@
         android:id="@+id/todayOrderFragment"
         android:name="com.example.krankbusiness.fragments.TodayOrderFragment"
         android:label="fragment_today_order"
-        tools:layout="@layout/fragment_today_order" />
+        tools:layout="@layout/fragment_today_order" >
+        <action
+            android:id="@+id/action_todayOrderFragment_to_addOrderFragment"
+            app:destination="@id/addOrderFragment" />
+    </fragment>
     <fragment
         android:id="@+id/expenseFragment"
         android:name="com.example.krankbusiness.fragments.ExpenseFragment"
@@ -65,5 +69,16 @@
         <action
             android:id="@+id/action_addExpenseFragment_to_expenseFragment"
             app:destination="@id/expenseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addOrderFragment"
+        android:name="com.example.krankbusiness.AddOrderFragment"
+        android:label="fragment_add_order"
+        tools:layout="@layout/fragment_add_order" >
+        <action
+            android:id="@+id/action_addOrderFragment_to_todayOrderFragment"
+            app:destination="@id/todayOrderFragment"
+            app:popUpTo="@id/addOrderFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

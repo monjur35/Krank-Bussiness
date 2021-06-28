@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.krankbusiness.models.ExpenseModel;
+import com.example.krankbusiness.models.OrderModel;
 import com.example.krankbusiness.models.Product;
 import com.example.krankbusiness.models.UserData;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -42,6 +43,7 @@ public class FirebaseRepository {
 
     private static String PRODUCTS_COLLECTION="Products";
     private static String EXPENSE_COLLECTION="Expense";
+    private static String ORDER_COLLECTION="Order";
 
 
     public FirebaseRepository() {
@@ -155,6 +157,26 @@ public class FirebaseRepository {
             }
         });
         return listMutableLiveData;
+    }
+
+    public void addOrder(OrderModel orderModel){
+        final DocumentReference documentReference=firebaseFirestore.collection(ORDER_COLLECTION).document();
+        String orderId=documentReference.getId();
+        orderModel.setOderId(orderId);
+        orderModel.setUserId(currentUser);
+
+        documentReference.set(orderModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull @NotNull Exception e) {
+                Log.e("TAG", "onEvent: Add Order List "+e.getLocalizedMessage() );
+            }
+        });
+
     }
 
 }
