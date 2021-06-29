@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="5dp"
-        android:layout_below="@+id/dashAppbar">
+        android:layout_below="@+id/search">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -52,6 +52,19 @@
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:background="@drawable/edit_text_style"
+        android:layout_below="@+id/dashAppbar"
+        android:hint="Search here..."
+        android:layout_margin="10dp"
+        android:elevation="10dp"
+        android:padding="5dp"
+        android:drawableLeft="@drawable/ic_baseline_search_24"
+        android:id="@+id/search"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"

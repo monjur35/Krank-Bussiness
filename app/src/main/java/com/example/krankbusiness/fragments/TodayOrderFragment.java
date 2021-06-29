@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,6 +90,39 @@ public class TodayOrderFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(v).navigate(R.id.action_todayOrderFragment_to_addOrderFragment);
+            }
+        });
+
+        binding.search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+               String searchWord=s.toString();
+               if (searchWord.isEmpty()){
+
+               }else {
+
+                   krankViewModel.getSearchOrderList(searchWord).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
+                       @Override
+                       public void onChanged(List<OrderModel> orderModels) {
+                           orderModelList.clear();
+                           orderModelList.addAll(orderModels);
+                           binding.todaysOrderRv.setAdapter(adapter);
+                           binding.todaysOrderRv.setLayoutManager(linearLayoutManager);
+                           adapter.notifyDataSetChanged();
+                       }
+                   });
+               }
+
             }
         });
     }
