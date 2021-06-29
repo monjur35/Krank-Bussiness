@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.krankbusiness.R;
@@ -42,6 +43,13 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         holder.address.setText(orderModelList.get(position).getCustomerAddress());
         holder.phone.setText(orderModelList.get(position).getCustomerPhone());
         holder.totalPrice.setText(orderModelList.get(position).getTotalPrice());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_todayOrderFragment_to_oderDetailsFragment);
+            }
+        });
 
     }
 

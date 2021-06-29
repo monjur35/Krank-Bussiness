@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_todayOrderFragment_to_addOrderFragment"
             app:destination="@id/addOrderFragment" />
+        <action
+            android:id="@+id/action_todayOrderFragment_to_oderDetailsFragment"
+            app:destination="@id/oderDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/expenseFragment"
@@ -96,4 +99,9 @@
             app:popUpTo="@id/addLoanFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/oderDetailsFragment"
+        android:name="com.example.krankbusiness.OderDetailsFragment"
+        android:label="fragment_oder_details"
+        tools:layout="@layout/fragment_oder_details" />
 </navigation>
