@@ -235,4 +235,17 @@ public class FirebaseRepository {
 
     }
 
+    public MutableLiveData<List<LoanModel>>fetchLoanList(){
+        MutableLiveData <List<LoanModel>>listMutableLiveData=new MutableLiveData<>();
+        firebaseFirestore.collection(LOANS_COLLECTION).whereEqualTo("userId",currentUser).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                if (error==null||!Objects.requireNonNull(value).isEmpty()){
+                    listMutableLiveData.postValue(value.toObjects(LoanModel.class));
+                }
+            }
+        });
+                return listMutableLiveData;
+    }
+
 }

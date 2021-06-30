@@ -65,5 +65,8 @@ public class KrankViewModel extends AndroidViewModel {
     public void addLoans(LoanModel loanModel){
         firebaseRepository.addLoan(loanModel);
     }
+    public MutableLiveData<List<LoanModel>>getLoanList(){
+        return firebaseRepository.fetchLoanList();
+    }
 
 }
