@@ -3,7 +3,7 @@
     <style name="Theme.KrankBusiness" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/red</item>
-        <item name="colorPrimaryVariant">#6A801717</item>
+        <item name="colorPrimaryVariant">#FF5050</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -15,6 +15,6 @@
     </style>
 
     <style name="ProgressBarTheme" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorAccent">@color/red</item>
+        <item name="colorAccent">@color/cardnotinStock</item>
     </style>
 </resources>

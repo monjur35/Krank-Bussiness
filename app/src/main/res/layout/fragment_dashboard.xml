@@ -435,17 +435,16 @@
 
 
     <com.github.ybq.android.spinkit.SpinKitView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/spin_kit"
-        style="@style/SpinKitView.Wave"
+        style="@style/SpinKitView.FadingCircle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="100dp"
-        app:SpinKit_Color="@color/red" />
+        app:SpinKit_Color="#DC00796B" />
 
 
 

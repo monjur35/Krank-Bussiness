@@ -131,12 +131,12 @@
     <com.github.ybq.android.spinkit.SpinKitView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/spin_kit"
-        style="@style/SpinKitView.Wave"
+        style="@style/SpinKitView.FadingCircle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:visibility="invisible"
        android:layout_centerInParent="true"
-        app:SpinKit_Color="@color/white" />
+        app:SpinKit_Color="#DC00796B" />
 
 </RelativeLayout>

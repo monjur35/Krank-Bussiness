@@ -94,7 +94,7 @@
     <com.github.ybq.android.spinkit.SpinKitView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/spin_kit"
-        style="@style/SpinKitView.ChasingDots"
+        style="@style/SpinKitView.FadingCircle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -102,6 +102,6 @@
         android:layout_above="@+id/loginBtn"
         android:padding="10dp"
         android:visibility="invisible"
-        app:SpinKit_Color="@color/red" />
+        app:SpinKit_Color="#DC00796B" />
 
 </RelativeLayout>
