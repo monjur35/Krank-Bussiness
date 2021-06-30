@@ -2,63 +2,82 @@ package com.example.krankbusiness;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AddLoanFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.krankbusiness.databinding.FragmentAddLoanBinding;
+import com.example.krankbusiness.models.LoanModel;
+import com.example.krankbusiness.viewModels.KrankViewModel;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
+
+
 public class AddLoanFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FragmentAddLoanBinding binding;
+    private KrankViewModel krankViewModel;
+    private String date="";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public AddLoanFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AddLoanFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AddLoanFragment newInstance(String param1, String param2) {
-        AddLoanFragment fragment = new AddLoanFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_loan, container, false);
+        binding=FragmentAddLoanBinding.inflate(inflater);
+        krankViewModel=new ViewModelProvider(requireActivity()).get(KrankViewModel.class);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+        binding.addLoanBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String lenderName=binding.name.getText().toString();
+                final String amount=binding.amount.getText().toString();
+                final String repayed="00";
+
+                if (amount.isEmpty()||lenderName.isEmpty()||date.isEmpty()){
+                    Toast.makeText(getContext(), "Please verify all field and date", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    LoanModel loanModel=new LoanModel(null,null,lenderName,amount,repayed,amount);
+                    krankViewModel.addLoans(loanModel);
+                    Navigation.findNavController(v).navigate(R.id.action_addLoanFragment_to_loanFragment);
+                }
+            }
+        });
+
+        binding.calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month,
+                                            int dayOfMonth) {
+                String  curDate = String.valueOf(dayOfMonth);
+                String  Year = String.valueOf(year);
+                String  Month = String.valueOf(month);
+
+                date=curDate+"/"+Month+"/"+Year;
+            }
+        });
+
     }
 }

@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.krankbusiness.models.ExpenseModel;
+import com.example.krankbusiness.models.LoanModel;
 import com.example.krankbusiness.models.OrderModel;
 import com.example.krankbusiness.models.Product;
 import com.example.krankbusiness.models.UserData;
@@ -44,6 +45,7 @@ public class FirebaseRepository {
     private static String PRODUCTS_COLLECTION="Products";
     private static String EXPENSE_COLLECTION="Expense";
     private static String ORDER_COLLECTION="Order";
+    private static String LOANS_COLLECTION="Loans";
 
 
     public FirebaseRepository() {
@@ -209,6 +211,27 @@ public class FirebaseRepository {
         });
 
         return listMutableLiveData;
+
+    }
+
+    public void addLoan(LoanModel loanModel){
+
+        final DocumentReference documentReference=firebaseFirestore.collection(LOANS_COLLECTION).document();
+        String loanId=documentReference.getId();
+       loanModel.setLoanId(loanId);
+       loanModel.setUserId(currentUser);
+
+       documentReference.set(loanModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+           @Override
+           public void onSuccess(Void unused) {
+
+           }
+       }).addOnFailureListener(new OnFailureListener() {
+           @Override
+           public void onFailure(@NonNull @NotNull Exception e) {
+               Log.e("TAG", "onFailure: Add Loans ::: "+e.getLocalizedMessage() );
+           }
+       });
 
     }
 
