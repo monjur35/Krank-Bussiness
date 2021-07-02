@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.krankbusiness.R;
 import com.example.krankbusiness.databinding.FragmentInputProductBinding;
 import com.example.krankbusiness.models.Product;
+import com.example.krankbusiness.models.SizeList;
 import com.example.krankbusiness.viewModels.KrankViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +24,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -34,6 +37,8 @@ public class InputProductFragment extends Fragment {
 
     private FirebaseAuth firebaseAuth;
     private FirebaseUser currentUser;
+
+    private List<String>sizeList;
 
 
     public InputProductFragment() {
@@ -52,6 +57,7 @@ public class InputProductFragment extends Fragment {
         bottomNavigationView.setVisibility(View.GONE);
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser();
+        sizeList=new ArrayList<>();
         return binding.getRoot();
     }
 
@@ -96,10 +102,11 @@ public class InputProductFragment extends Fragment {
                             final int xxlSizeInt = Integer.parseInt(xxlSize);
                             final int xxxlSizeInt = Integer.parseInt(xxxlSize);
 
+                            SizeList sizeList=new SizeList(null,mSize,lSize,xlSize,xxlSize,xxxlSize);
                             final int totalinStock = mSizeInt + lSizeInt + xlSizeInt + xxlSizeInt + xxxlSizeInt;
 
                             Product product = new Product(userId, null, product_name, priceInt, cost,
-                                    mSizeInt, lSizeInt, xlSizeInt, xxlSizeInt, xxxlSizeInt, totalinStock);
+                                     sizeList, totalinStock);
 
                             krankViewModel.addNewProduct(product);
 

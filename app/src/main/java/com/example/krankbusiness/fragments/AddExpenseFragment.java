@@ -72,8 +72,7 @@ public class AddExpenseFragment extends Fragment {
                                             int dayOfMonth) {
                 String  curDate = String.valueOf(dayOfMonth);
                 String  Year = String.valueOf(year);
-                String  Month = String.valueOf(month);
-
+                String  Month = String.valueOf(month+1);
                 date=curDate+"/"+Month+"/"+Year;
             }
         });
@@ -94,7 +93,6 @@ public class AddExpenseFragment extends Fragment {
                     krankViewModel.addExpense(expenseModel);
                     Navigation.findNavController(v).navigate(R.id.action_addExpenseFragment_to_expenseFragment);
                 }
-
             }
         });
     }

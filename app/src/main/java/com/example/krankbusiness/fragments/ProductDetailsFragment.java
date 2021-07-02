@@ -56,11 +56,11 @@ public class ProductDetailsFragment extends Fragment {
                         binding.totalinStock.setText(String.valueOf(product.getTotalInStock()));
                         binding.sellingPriceinDetails.setText(String.valueOf(product.getProductPrice()));
                         binding.productionCostindetails.setText(String.valueOf(product.getProduction_cost()));
-                        binding.mSizeee.setText(String.valueOf(product.getmSizeInStock()));
-                        binding.lSizeee.setText(String.valueOf(product.getLSizeInStock()));
-                        binding.xlSizeee.setText(String.valueOf(product.getXlSizeInStock()));
-                        binding.xxlSizeee.setText(String.valueOf(product.getXxlSizeInStock()));
-                        binding.xxxlSizeee.setText(String.valueOf(product.getXxxlSizeInStock()));
+                        binding.mSizeee.setText(String.valueOf(product.getSizeLisT().getmSize()));
+                        binding.lSizeee.setText(String.valueOf(product.getSizeLisT().getlSize()));
+                        binding.xlSizeee.setText(String.valueOf(product.getSizeLisT().getXlSize()));
+                        binding.xxlSizeee.setText(String.valueOf(product.getSizeLisT().getXxlSize()));
+                        binding.xxxlSizeee.setText(String.valueOf(product.getSizeLisT().getXxxlSize()));
                         binding.spinKit.setVisibility(View.INVISIBLE);
 
                     } else {

@@ -82,6 +82,7 @@ public class FirebaseRepository {
 
         final DocumentReference documentReference=firebaseFirestore.collection(PRODUCTS_COLLECTION).document();
         String productID=documentReference.getId();
+        product.getSizeLisT().setProductId(productID);
         product.setProductId(productID);
 
         documentReference.set(product).addOnSuccessListener(new OnSuccessListener<Void>() {

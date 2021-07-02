@@ -84,67 +84,44 @@
             android:fontFamily="@font/new_rocker"
             android:hint="Address"
             android:padding="5dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ddddd"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="5dp"
+            android:hint="Select Product">
 
-        <com.google.android.material.textview.MaterialTextView
+            <AutoCompleteTextView
+                android:id="@+id/selectedProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:fontFamily="@font/new_rocker"
+                android:inputType="none"
+                android:padding="10dp"
+                android:text="Select" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:fontFamily="@font/new_rocker"
+            android:layout_height="45dp"
             android:layout_marginHorizontal="5dp"
-            android:text="Select Item" />
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/itemName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="40dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginHorizontal="5dp"
-            android:background="@drawable/edit_text_style"
-            android:elevation="5dp"
-            android:inputType="text"
-            android:fontFamily="@font/new_rocker"
-            android:hint="Item name"
-            android:padding="5dp" />
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:fontFamily="@font/new_rocker"
-            android:layout_marginHorizontal="5dp"
-            android:text="Select Size" />
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/size"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="40dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginHorizontal="5dp"
-            android:background="@drawable/edit_text_style"
-            android:elevation="5dp"
-            android:inputType="text"
-            android:fontFamily="@font/new_rocker"
-            android:hint="s,m,xl,xxl,xxxl"
-            android:padding="5dp" />
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:fontFamily="@font/new_rocker"
-            android:layout_marginHorizontal="5dp"
-            android:text="Select Size" />
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/totalPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="40dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginHorizontal="5dp"
-            android:background="@drawable/edit_text_style"
-            android:elevation="5dp"
-            android:inputType="numberDecimal"
-            android:fontFamily="@font/new_rocker"
-            android:hint="Total Price"
-            android:padding="5dp" />
+            android:layout_marginTop="5dp"
+            android:hint="Select Size">
+
+            <AutoCompleteTextView
+                android:id="@+id/selectedSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:fontFamily="@font/new_rocker"
+                android:inputType="none"
+                android:padding="10dp"
+                android:text="Select" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"

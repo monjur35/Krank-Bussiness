@@ -6,29 +6,30 @@ public class Product {
     private String productName;
     private int productPrice;
     private int production_cost;
-    private int mSizeInStock;
-    private int LSizeInStock;
-    private int xlSizeInStock;
-    private int xxlSizeInStock;
-    private int xxxlSizeInStock;
+    private SizeList sizeLisT;
     private int totalInStock;
 
     public Product() {
     }
 
-    public Product(String uId, String productId, String productName, int productPrice, int production_cost, int mSizeInStock,
-                   int LSizeInStock, int xlSizeInStock, int xxlSizeInStock, int xxxlSizeInStock, int totalInStock) {
+
+
+    public Product(String uId, String productId, String productName, int productPrice, int production_cost, SizeList sizeLisT, int totalInStock) {
         this.uId = uId;
         this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;
         this.production_cost = production_cost;
-        this.mSizeInStock = mSizeInStock;
-        this.LSizeInStock = LSizeInStock;
-        this.xlSizeInStock = xlSizeInStock;
-        this.xxlSizeInStock = xxlSizeInStock;
-        this.xxxlSizeInStock = xxxlSizeInStock;
+        this.sizeLisT = sizeLisT;
         this.totalInStock = totalInStock;
+    }
+
+    public SizeList getSizeLisT() {
+        return sizeLisT;
+    }
+
+    public void setSizeLisT(SizeList sizeLisT) {
+        this.sizeLisT = sizeLisT;
     }
 
     public String getuId() {
@@ -71,45 +72,6 @@ public class Product {
         this.production_cost = production_cost;
     }
 
-    public int getmSizeInStock() {
-        return mSizeInStock;
-    }
-
-    public void setmSizeInStock(int mSizeInStock) {
-        this.mSizeInStock = mSizeInStock;
-    }
-
-    public int getLSizeInStock() {
-        return LSizeInStock;
-    }
-
-    public void setLSizeInStock(int LSizeInStock) {
-        this.LSizeInStock = LSizeInStock;
-    }
-
-    public int getXlSizeInStock() {
-        return xlSizeInStock;
-    }
-
-    public void setXlSizeInStock(int xlSizeInStock) {
-        this.xlSizeInStock = xlSizeInStock;
-    }
-
-    public int getXxlSizeInStock() {
-        return xxlSizeInStock;
-    }
-
-    public void setXxlSizeInStock(int xxlSizeInStock) {
-        this.xxlSizeInStock = xxlSizeInStock;
-    }
-
-    public int getXxxlSizeInStock() {
-        return xxxlSizeInStock;
-    }
-
-    public void setXxxlSizeInStock(int xxxlSizeInStock) {
-        this.xxxlSizeInStock = xxxlSizeInStock;
-    }
 
     public int getTotalInStock() {
         return totalInStock;
