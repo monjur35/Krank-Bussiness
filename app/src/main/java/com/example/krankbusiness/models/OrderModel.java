@@ -1,13 +1,14 @@
 package com.example.krankbusiness.models;
 
+import java.util.List;
+
 public class OrderModel {
     private String oderId;
     private String userId;
     private String customerName;
     private String customerPhone;
     private String customerAddress;
-    private String itemName;
-    private String itemSize;
+   private List<Items> itemsList;
     private String totalPrice;
     private String date;
 
@@ -15,20 +16,17 @@ public class OrderModel {
     public OrderModel() {
     }
 
-    public OrderModel(String oderId, String userId, String customerName,
-                      String customerPhone, String customerAddress, String itemName, String itemSize, String totalPrice,String date) {
+    public OrderModel(String oderId, String userId, String customerName, String customerPhone,
+                      String customerAddress, List<Items> itemsList, String totalPrice, String date) {
         this.oderId = oderId;
         this.userId = userId;
         this.customerName = customerName;
         this.customerPhone = customerPhone;
         this.customerAddress = customerAddress;
-        this.itemName = itemName;
-        this.itemSize = itemSize;
+        this.itemsList = itemsList;
         this.totalPrice = totalPrice;
         this.date = date;
     }
-
-
 
     public String getOderId() {
         return oderId;
@@ -70,20 +68,12 @@ public class OrderModel {
         this.customerAddress = customerAddress;
     }
 
-    public String getItemName() {
-        return itemName;
+    public List<Items> getItemsList() {
+        return itemsList;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-
-    public String getItemSize() {
-        return itemSize;
-    }
-
-    public void setItemSize(String itemSize) {
-        this.itemSize = itemSize;
+    public void setItemsList(List<Items> itemsList) {
+        this.itemsList = itemsList;
     }
 
     public String getTotalPrice() {

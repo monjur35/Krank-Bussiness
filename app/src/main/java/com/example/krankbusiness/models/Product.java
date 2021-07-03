@@ -56,7 +56,7 @@ public class Product {
         this.productName = productName;
     }
 
-    public int getProductPrice() {
+    public Integer getProductPrice() {
         return productPrice;
     }
 

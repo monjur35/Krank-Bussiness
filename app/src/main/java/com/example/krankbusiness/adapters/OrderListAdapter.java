@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.krankbusiness.R;
@@ -20,6 +21,7 @@ import java.util.List;
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.OrderViewHolder> {
     private Context context;
     private List<OrderModel>orderModelList;
+    private RecyclerView.RecycledViewPool recycledViewPool=new RecyclerView.RecycledViewPool();
 
     public OrderListAdapter(Context context, List<OrderModel> orderModelList) {
         this.context = context;
@@ -39,17 +41,19 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     public void onBindViewHolder(@NonNull @NotNull OrderListAdapter.OrderViewHolder holder, int position) {
 
         holder.customerName.setText(orderModelList.get(position).getCustomerName());
-        holder.items.setText(orderModelList.get(position).getItemName()+"-"+orderModelList.get(position).getItemSize());
+
         holder.address.setText(orderModelList.get(position).getCustomerAddress());
         holder.phone.setText(orderModelList.get(position).getCustomerPhone());
         holder.totalPrice.setText(orderModelList.get(position).getTotalPrice());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.action_todayOrderFragment_to_oderDetailsFragment);
-            }
-        });
+
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(holder.suvRv.getContext(),LinearLayoutManager.VERTICAL,false);
+        linearLayoutManager.setInitialPrefetchItemCount(orderModelList.get(position).getItemsList().size());
+        SubAdapter adapter=new SubAdapter(orderModelList.get(position).getItemsList());
+
+        holder.suvRv.setLayoutManager(linearLayoutManager);
+        holder.suvRv.setAdapter(adapter);
+        holder.suvRv.setRecycledViewPool(recycledViewPool);
 
     }
 
@@ -59,15 +63,16 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     }
 
     class OrderViewHolder extends RecyclerView.ViewHolder{
-        TextView customerName,items,address,phone,totalPrice;
+        TextView customerName,address,phone,totalPrice;
+        RecyclerView suvRv;
 
         public OrderViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             customerName=itemView.findViewById(R.id.customerNameInRow);
-            items=itemView.findViewById(R.id.items);
             address=itemView.findViewById(R.id.addressInrow);
             phone=itemView.findViewById(R.id.phoneInRow);
             totalPrice=itemView.findViewById(R.id.totalPriceinRow);
+            suvRv=itemView.findViewById(R.id.subItemListRv);
         }
     }
 }

@@ -10,16 +10,20 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.example.krankbusiness.adapters.ProductListinOrderAdapter;
 import com.example.krankbusiness.databinding.FragmentAddOrderBinding;
+import com.example.krankbusiness.models.Items;
 import com.example.krankbusiness.models.OrderModel;
 import com.example.krankbusiness.models.Product;
+import com.example.krankbusiness.models.SizeList;
 import com.example.krankbusiness.viewModels.KrankViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +34,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -39,8 +45,23 @@ public class AddOrderFragment extends Fragment {
     private FragmentAddOrderBinding binding;
     private KrankViewModel krankViewModel;
     private List<String>productsName;
-    private List<String>size= Arrays.asList(new String[]{"M", "L", "XL","2XL","3XL"});
-    private String itemName;
+    private List<Integer>productsPrice;
+    private List<String>sizeList= Arrays.asList("mSize", "lSize", "xlSize", "xxlSize", "xxxlSize");
+    private List<Items>itemsList;
+    private int totalPrice=0;
+    private Items items1;
+    private Items items2;
+    private Items items3;
+    private Items items4;
+    private String item1Name;
+    private String item2Name;
+    private String item3Name;
+    private String item4Name;
+    private String item1Size;
+    private String item2Size;
+    private String item3Size;
+    private String item4Size;
+
 
 
     private List<Product>productList;
@@ -61,7 +82,14 @@ public class AddOrderFragment extends Fragment {
         bottomNavigationView=getActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
 
+
         productsName=new ArrayList<>();
+        productsPrice=new ArrayList<>();
+        items1=new Items();
+        items2=new Items();
+        items3=new Items();
+        items4=new Items();
+        itemsList=new ArrayList<>();
 
 
         return binding.getRoot();
@@ -71,8 +99,11 @@ public class AddOrderFragment extends Fragment {
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+
+
         binding.spinKit.setVisibility(View.VISIBLE);
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager( 2,StaggeredGridLayoutManager.VERTICAL);
+      //  StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager( 2,StaggeredGridLayoutManager.VERTICAL);
 
         krankViewModel.getAllProductList().observe(getViewLifecycleOwner(), new Observer<List<Product>>() {
             @Override
@@ -80,13 +111,90 @@ public class AddOrderFragment extends Fragment {
 
                 for (int i=0;i<products.size();i++){
                     productsName.add(products.get(i).getProductName());
+                    productsPrice.add(products.get(i).getProductPrice());
+                   // products.get(i).getSizeLisT().getmSize();
+
                 }
 
-                final ArrayAdapter<String> productAdapter= new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, productsName);
-                binding.selectedProduct.setAdapter(productAdapter);
 
-                final ArrayAdapter<String> sizeAdapter= new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, size);
-                binding.selectedSize.setAdapter(sizeAdapter);
+                final ArrayAdapter<String> productAdapter= new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, productsName);
+                binding.selectedProductItem1.setAdapter(productAdapter);
+
+
+               // final ArrayAdapter<String> productAdapter2= new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, productsName);
+                binding.selectedProductItem2.setAdapter(productAdapter);
+
+
+
+               binding.selectedProductItem1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                   @Override
+                   public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                       item1Name=productsName.get(position);
+                       items1.setItemName(item1Name);
+                       totalPrice=productsPrice.get(position);
+                       binding.totalPrice.setText(String.valueOf(totalPrice));
+
+                       final String mSize="M :"+products.get(position).getSizeLisT().getmSize();
+                       final String lSize="L :"+products.get(position).getSizeLisT().getlSize();
+                       final String xlSize="XL :"+products.get(position).getSizeLisT().getXlSize();
+                       final String xxlSize="2xL :"+products.get(position).getSizeLisT().getXxlSize();
+                       final String xxxlSize="3XL :"+products.get(position).getSizeLisT().getXxlSize();
+
+                       Log.e("TAG", "onItemSelected: "+mSize+lSize+xlSize);
+
+
+
+                       final List<String>size= Arrays.asList(mSize, lSize, xlSize, xxlSize, xxxlSize);
+                       final ArrayAdapter<String> sizeAdapter= new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, size);
+                       binding.selectedSizeItem1.setAdapter(sizeAdapter);
+
+                       binding.selectedSizeItem1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                           @Override
+                           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                               item1Size=sizeList.get(position);
+                               items1.setItemSize(item1Size);
+                               itemsList.add(items1);
+                           }
+                       });
+                   }
+               });
+
+                binding.selectedProductItem2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        item2Name=productsName.get(position);
+                        items2.setItemName(item2Name);
+                        totalPrice=totalPrice+productsPrice.get(position);
+                        binding.totalPrice.setText(String.valueOf(totalPrice));
+
+                        final String mSize="M :"+products.get(position).getSizeLisT().getmSize();
+                        final String lSize="L :"+products.get(position).getSizeLisT().getlSize();
+                        final String xlSize="XL :"+products.get(position).getSizeLisT().getXlSize();
+                        final String xxlSize="2xL :"+products.get(position).getSizeLisT().getXxlSize();
+                        final String xxxlSize="3XL :"+products.get(position).getSizeLisT().getXxlSize();
+
+                        Log.e("TAG", "onItemSelected: "+mSize+lSize+xlSize);
+
+
+
+                        final List<String>size= Arrays.asList(mSize, lSize, xlSize, xxlSize, xxxlSize);
+                        final ArrayAdapter<String> sizeAdapter= new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, size);
+                        binding.selectedSizeItem2.setAdapter(sizeAdapter);
+
+                        binding.selectedSizeItem2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                item2Size=sizeList.get(position);
+                                items2.setItemSize(item2Size);
+                                itemsList.add(items2);
+                            }
+                        });
+                    }
+                });
+
+
+
+
 
                 binding.spinKit.setVisibility(View.INVISIBLE);
             }
@@ -106,15 +214,15 @@ public class AddOrderFragment extends Fragment {
                 final String customerAddress=binding.address.getText().toString();
 
 
-               /* if (customerName.isEmpty()||customerPhone.isEmpty()||customerAddress.isEmpty()||itemName.isEmpty()||itemSize.isEmpty()||totalPrice.isEmpty()){
+                if (customerName.isEmpty()||customerPhone.isEmpty()||customerAddress.isEmpty()||itemsList.size()==0){
                     Toast.makeText(getContext(), "plz ,Verify all field", Toast.LENGTH_SHORT).show();
                 }else {
 
-                    OrderModel orderModel=new OrderModel(null,null,customerName,customerPhone,customerAddress,itemName,itemSize,totalPrice,formattedDate);
+                    OrderModel orderModel=new OrderModel(null,null,customerName,customerPhone,customerAddress,itemsList,String.valueOf(totalPrice),formattedDate);
                     krankViewModel.addOrder(orderModel);
                     Navigation.findNavController(v).navigate(R.id.action_addOrderFragment_to_todayOrderFragment);
 
-                }*/
+                }
 
             }
         });
