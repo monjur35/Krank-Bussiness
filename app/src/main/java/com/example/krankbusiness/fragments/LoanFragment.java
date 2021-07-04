@@ -52,6 +52,7 @@ public class LoanFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        binding.spinKit.setVisibility(View.VISIBLE);
 
         final LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
 
@@ -64,8 +65,10 @@ public class LoanFragment extends Fragment {
                     binding.loanRv.setLayoutManager(linearLayoutManager);
                     binding.loanRv.setAdapter(loanAdapter);
                     loanAdapter.notifyDataSetChanged();
+                    binding.spinKit.setVisibility(View.INVISIBLE);
                 }else {
                     Toast.makeText(getContext(), "No data found", Toast.LENGTH_SHORT).show();
+                    binding.spinKit.setVisibility(View.INVISIBLE);
                 }
 
             }
