@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.krankbusiness.R;
 import com.example.krankbusiness.databinding.FragmentDashboardBinding;
 import com.example.krankbusiness.models.ExpenseModel;
+import com.example.krankbusiness.models.OrderModel;
 import com.example.krankbusiness.models.UserData;
 import com.example.krankbusiness.viewModels.KrankViewModel;
 
@@ -34,6 +35,7 @@ public class DashboardFragment extends Fragment {
     private FragmentDashboardBinding binding;
     private KrankViewModel krankViewModel;
     private int totalExpense;
+    private int monthlySell;
 
 
 
@@ -64,6 +66,7 @@ public class DashboardFragment extends Fragment {
         String month_name = month_date.format(cal.getTime());
 
        getthismonthExpense(month_name);
+       getthismonthSell(month_name);
 
 
 
@@ -102,6 +105,21 @@ public class DashboardFragment extends Fragment {
             }
         });
 
+    }
+
+    private void getthismonthSell(String month_name) {
+        krankViewModel.getMonthlySell(month_name).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
+            @Override
+            public void onChanged(List<OrderModel> orderModels) {
+                if (orderModels!=null){
+                    for (int i=0;i<orderModels.size();i++){
+                        monthlySell=monthlySell+Integer.parseInt(orderModels.get(i).getTotalPrice());
+                        binding.thisMonthSell.setText(String.valueOf(monthlySell));
+                    }
+                }
+
+            }
+        });
     }
 
     private void getthismonthExpense(String month_name){

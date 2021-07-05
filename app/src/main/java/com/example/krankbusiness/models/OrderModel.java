@@ -11,13 +11,14 @@ public class OrderModel {
    private List<Items> itemsList;
     private String totalPrice;
     private String date;
+    private String monthName;
 
 
     public OrderModel() {
     }
 
     public OrderModel(String oderId, String userId, String customerName, String customerPhone,
-                      String customerAddress, List<Items> itemsList, String totalPrice, String date) {
+                      String customerAddress, List<Items> itemsList, String totalPrice, String date,String monthName) {
         this.oderId = oderId;
         this.userId = userId;
         this.customerName = customerName;
@@ -26,6 +27,7 @@ public class OrderModel {
         this.itemsList = itemsList;
         this.totalPrice = totalPrice;
         this.date = date;
+        this.monthName = monthName;
     }
 
     public String getOderId() {
@@ -92,4 +94,11 @@ public class OrderModel {
         this.date = date;
     }
 
+    public String getMonthName() {
+        return monthName;
+    }
+
+    public void setMonthName(String monthName) {
+        this.monthName = monthName;
+    }
 }

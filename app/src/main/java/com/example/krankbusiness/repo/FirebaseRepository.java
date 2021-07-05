@@ -250,4 +250,22 @@ public class FirebaseRepository {
     }
 
 
+
+    public MutableLiveData<List<OrderModel>>getmonthlySell(String monthName){
+        MutableLiveData<List<OrderModel>>listMutableLiveData=new MutableLiveData<>();
+        firebaseFirestore.collection(ORDER_COLLECTION).whereEqualTo("userId",currentUser).whereEqualTo("monthName",monthName).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                if (error==null){
+                    assert value != null;
+                    listMutableLiveData.postValue(value.toObjects(OrderModel.class));
+                }
+            }
+        });
+
+        return listMutableLiveData;
+
+    }
+
+
 }

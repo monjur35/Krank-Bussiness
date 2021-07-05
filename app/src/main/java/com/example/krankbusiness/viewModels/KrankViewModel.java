@@ -69,4 +69,9 @@ public class KrankViewModel extends AndroidViewModel {
         return firebaseRepository.fetchLoanList();
     }
 
+    public MutableLiveData<List<OrderModel>>getMonthlySell(String month){
+        return firebaseRepository.getmonthlySell(month);
+    }
+
+
 }

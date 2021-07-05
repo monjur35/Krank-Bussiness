@@ -55,6 +55,13 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
         holder.suvRv.setAdapter(adapter);
         holder.suvRv.setRecycledViewPool(recycledViewPool);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_todayOrderFragment_to_oderDetailsFragment);
+            }
+        });
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.krankbusiness;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,7 @@ public class AddOrderFragment extends Fragment {
     private List<Integer> productsPrice;
     private List<String> sizeList = Arrays.asList("mSize", "lSize", "xlSize", "xxlSize", "xxxlSize");
     private List<Items> itemsList;
+    private List<String> productIdList;
     private int totalPrice = 0;
     private Items items1;
     private Items items2;
@@ -61,6 +63,7 @@ public class AddOrderFragment extends Fragment {
     private String item2Size;
     private String item3Size;
     private String item4Size;
+    private int selectedItemCount;
 
 
     private List<Product> productList;
@@ -89,6 +92,7 @@ public class AddOrderFragment extends Fragment {
         items3 = new Items();
         items4 = new Items();
         itemsList = new ArrayList<>();
+        productIdList = new ArrayList<>();
 
 
         return binding.getRoot();
@@ -97,6 +101,14 @@ public class AddOrderFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        String formattedDate = df.format(c);
+        @SuppressLint("SimpleDateFormat")
+        String monthName = new SimpleDateFormat("MMMM").format(c);
+        Log.e("TAG", "onViewCreated:  Month"+monthName );
 
 
         binding.spinKit.setVisibility(View.VISIBLE);
@@ -109,6 +121,7 @@ public class AddOrderFragment extends Fragment {
                 for (int i = 0; i < products.size(); i++) {
                     productsName.add(products.get(i).getProductName());
                     productsPrice.add(products.get(i).getProductPrice());
+                    productIdList.add(products.get(i).getProductId());
                     // products.get(i).getSizeLisT().getmSize();
 
                 }
@@ -149,6 +162,9 @@ public class AddOrderFragment extends Fragment {
                                 item1Size = sizeList.get(position);
                                 items1.setItemSize(item1Size);
                                 itemsList.add(items1);
+
+                                binding.selectedProductItem2.setEnabled(true);
+                                binding.selectedSizeItem2.setEnabled(true);
                             }
                         });
                     }
@@ -182,6 +198,9 @@ public class AddOrderFragment extends Fragment {
                                 item2Size = sizeList.get(position);
                                 items2.setItemSize(item2Size);
                                 itemsList.add(items2);
+
+                                binding.selectedProductItem3.setEnabled(true);
+                                binding.selectedSizeItem3.setEnabled(true);
                             }
                         });
                     }
@@ -215,6 +234,9 @@ public class AddOrderFragment extends Fragment {
                                 item3Size = sizeList.get(position);
                                 items3.setItemSize(item3Size);
                                 itemsList.add(items3);
+
+                                binding.selectedProductItem4.setEnabled(true);
+                                binding.selectedSizeItem4.setEnabled(true);
                             }
                         });
                     }
@@ -259,39 +281,29 @@ public class AddOrderFragment extends Fragment {
         });
 
 
-        Date c = Calendar.getInstance().getTime();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
-        String formattedDate = df.format(c);
 
 
-        new Thread(new Runnable() {
+        binding.addOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-
-                binding.addOrderBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        final String customerName = binding.customerName.getText().toString();
-                        final String customerPhone = binding.phone.getText().toString();
-                        final String customerAddress = binding.address.getText().toString();
+            public void onClick(View v) {
+                final String customerName = binding.customerName.getText().toString();
+                final String customerPhone = binding.phone.getText().toString();
+                final String customerAddress = binding.address.getText().toString();
 
 
-                        if (customerName.isEmpty() || customerPhone.isEmpty() || customerAddress.isEmpty() || itemsList.size() == 0) {
-                            Toast.makeText(getContext(), "plz ,Verify all field", Toast.LENGTH_SHORT).show();
-                        } else {
+                if (customerName.isEmpty() || customerPhone.isEmpty() || customerAddress.isEmpty() || itemsList.size() == 0) {
+                    Toast.makeText(getContext(), "plz ,Verify all field", Toast.LENGTH_SHORT).show();
+                } else {
 
-                            OrderModel orderModel = new OrderModel(null, null, customerName, customerPhone, customerAddress, itemsList, String.valueOf(totalPrice), formattedDate);
-                            krankViewModel.addOrder(orderModel);
-
-
-                            Navigation.findNavController(v).navigate(R.id.action_addOrderFragment_to_todayOrderFragment);
-
-                        }
+                    OrderModel orderModel = new OrderModel(null, null, customerName, customerPhone, customerAddress, itemsList, String.valueOf(totalPrice), formattedDate,monthName);
+                    krankViewModel.addOrder(orderModel);
 
 
+                    Navigation.findNavController(v).navigate(R.id.action_addOrderFragment_to_todayOrderFragment);
 
-                    }
-                });
+                }
+
+
             }
         });
 

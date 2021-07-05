@@ -176,6 +176,7 @@
                     android:fontFamily="@font/new_rocker"
                     android:inputType="none"
                     android:padding="10dp"
+                    android:enabled="false"
                     android:text="Select" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -194,6 +195,7 @@
                     android:editable="false"
                     android:fontFamily="@font/new_rocker"
                     android:inputType="none"
+                    android:enabled="false"
                     android:padding="10dp"
                     android:text="Select" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -217,6 +219,7 @@
                     android:editable="false"
                     android:fontFamily="@font/new_rocker"
                     android:inputType="none"
+                    android:enabled="false"
                     android:padding="10dp"
                     android:text="Select" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -236,6 +239,7 @@
                     android:editable="false"
                     android:fontFamily="@font/new_rocker"
                     android:inputType="none"
+                    android:enabled="false"
                     android:padding="10dp"
                     android:text="Select" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -259,6 +263,7 @@
                     android:editable="false"
                     android:fontFamily="@font/new_rocker"
                     android:inputType="none"
+                    android:enabled="false"
                     android:padding="10dp"
                     android:text="Select" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -278,6 +283,7 @@
                     android:editable="false"
                     android:fontFamily="@font/new_rocker"
                     android:inputType="none"
+                    android:enabled="false"
                     android:padding="10dp"
                     android:text="Select" />
             </com.google.android.material.textfield.TextInputLayout>
