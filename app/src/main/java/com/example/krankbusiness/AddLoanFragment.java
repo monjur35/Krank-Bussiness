@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.krankbusiness.databinding.FragmentAddLoanBinding;
 import com.example.krankbusiness.models.LoanModel;
 import com.example.krankbusiness.viewModels.KrankViewModel;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -28,6 +29,7 @@ public class AddLoanFragment extends Fragment {
     private FragmentAddLoanBinding binding;
     private KrankViewModel krankViewModel;
     private String date="";
+    private String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
     public AddLoanFragment() {
@@ -59,7 +61,7 @@ public class AddLoanFragment extends Fragment {
                     Toast.makeText(getContext(), "Please verify all field and date", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    LoanModel loanModel=new LoanModel(null,null,lenderName,amount,repayed,amount);
+                    LoanModel loanModel=new LoanModel(null,uid,lenderName,amount,repayed,amount);
                     krankViewModel.addLoans(loanModel);
                     Navigation.findNavController(v).navigate(R.id.action_addLoanFragment_to_loanFragment);
                 }

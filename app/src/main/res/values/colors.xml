@@ -11,4 +11,10 @@
     <color name="red">#C12121</color>
     <color name="cardnotinStock">#FF8585</color>
     <color name="transparent">#00000000</color>
+
+    <color name="colorPrimary">#0288D1</color>
+    <color name="colorPrimaryDark">#8BD32F2F</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorText">#4E4236</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>

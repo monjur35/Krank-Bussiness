@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,6 +11,7 @@
         android:layout_height="40dp"
         android:orientation="horizontal"
         android:gravity="center"
+        android:id="@+id/ddddddddd"
         android:background="@drawable/order_status_bg">
         <ImageView
             android:layout_width="40dp"
@@ -25,5 +27,81 @@
             android:id="@+id/orderStatus"
             android:textColor="@color/white"/>
     </LinearLayout>
+
+
+
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/ddddddddd"
+            android:background="@drawable/drop_shadow" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
+        android:layout_margin="10dp"
+        android:id="@+id/layout1"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/CustomerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/new_rocker"
+            android:text="Customer Name"
+            android:textAllCaps="true"
+            android:layout_marginBottom="5dp"/>
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/new_rocker"
+            android:text="Phone"
+            android:textAllCaps="true"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/new_rocker"
+            android:text="address"
+            android:layout_marginBottom="5dp"/>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/ddddddddd"
+            android:background="@drawable/drop_shadow" />
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </RelativeLayout>

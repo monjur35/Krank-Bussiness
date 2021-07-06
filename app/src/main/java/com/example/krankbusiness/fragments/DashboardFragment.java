@@ -21,12 +21,15 @@ import com.example.krankbusiness.models.ExpenseModel;
 import com.example.krankbusiness.models.OrderModel;
 import com.example.krankbusiness.models.UserData;
 import com.example.krankbusiness.viewModels.KrankViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Executor;
 
 
@@ -36,6 +39,10 @@ public class DashboardFragment extends Fragment {
     private KrankViewModel krankViewModel;
     private int totalExpense;
     private int monthlySell;
+
+    private FirebaseAuth auth;
+    private FirebaseUser firebaseUser;
+
 
 
 
@@ -49,7 +56,10 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding=FragmentDashboardBinding.inflate(inflater);
-        krankViewModel=new ViewModelProvider(getActivity()).get(KrankViewModel.class);
+        krankViewModel=new ViewModelProvider(requireActivity()).get(KrankViewModel.class);
+
+        auth=FirebaseAuth.getInstance();
+        firebaseUser=auth.getCurrentUser();
 
         return binding.getRoot();
 
@@ -68,21 +78,29 @@ public class DashboardFragment extends Fragment {
        getthismonthExpense(month_name);
        getthismonthSell(month_name);
 
+       krankViewModel.getUserData(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<UserData>>() {
+           @Override
+           public void onChanged(List<UserData> userData) {
+               if (userData.size()!=0){
+                   UserData user=userData.get(0);
+                   binding.capital.setText(user.getTotalCapital());
+                   binding.profit.setText(user.getTotalProfit());
+                   binding.totalExpense.setText(user.getTotalExpense());
+                   binding.totalCash.setText(user.getTotalCash());
+                   binding.totalLoan.setText(user.getTotalLoan());
+                   binding.spinKit.setVisibility(View.INVISIBLE);
+               }
+           }
+       });
 
 
 
 
-        krankViewModel.getUserData().observe(getViewLifecycleOwner(), new Observer<UserData>() {
+       /* krankViewModel.getUserData().observe(getViewLifecycleOwner(), new Observer<UserData>() {
             @Override
             public void onChanged(UserData userData) {
                 if (userData!=null){
-                    binding.capital.setText(userData.getTotalCapital());
-                    binding.profit.setText(userData.getTotalProfit());
-                    binding.totalExpense.setText(userData.getTotalExpense());
-                    binding.totalCash.setText(userData.getTotalCash());
-                    binding.totalLoan.setText(userData.getTotalLoan());
 
-                    binding.spinKit.setVisibility(View.INVISIBLE);
 
 
                 }
@@ -103,12 +121,12 @@ public class DashboardFragment extends Fragment {
                 }
 
             }
-        });
+        });*/
 
     }
 
     private void getthismonthSell(String month_name) {
-        krankViewModel.getMonthlySell(month_name).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
+        krankViewModel.getMonthlySell(firebaseUser.getUid(), month_name).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
             @Override
             public void onChanged(List<OrderModel> orderModels) {
                 if (orderModels!=null){
@@ -123,7 +141,7 @@ public class DashboardFragment extends Fragment {
     }
 
     private void getthismonthExpense(String month_name){
-        krankViewModel.getExpenseList().observe(getViewLifecycleOwner(), new Observer<List<ExpenseModel>>() {
+        krankViewModel.getExpenseList(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<ExpenseModel>>() {
             @Override
             public void onChanged(List<ExpenseModel> expenseModels) {
                 for (int i=0;i<expenseModels.size();i++){

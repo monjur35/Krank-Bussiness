@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,10 @@ import android.widget.Toast;
 import com.example.krankbusiness.R;
 import com.example.krankbusiness.activitys.HomeActivity;
 import com.example.krankbusiness.databinding.FragmentLoginBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -48,7 +51,7 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull @org.jetbrains.annotations.NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //mAuth.signOut();
+       //mAuth.signOut();
 
         if (mAuth.getCurrentUser()!=null){
            homeIntent();
@@ -59,15 +62,29 @@ public class LoginFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     binding.spinKit.setVisibility(View.VISIBLE);
-                    final String email=binding.loginEmail.getText().toString();
-                    final String password=binding.loginEmail.getText().toString();
+                    final String email= binding.loginEmail.getText().toString().trim();
+                    final String password=binding.loginpass.getText().toString().trim();
 
-                    if (!email.isEmpty()||!password.isEmpty()){
-                        mAuth.signInWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    Log.e("TAG", "onClick: email :"+email +"  paass :"+password );
+
+                    if (email.isEmpty()||password.isEmpty()) {
+
+                        Toast.makeText(getContext(), "Please ,Verify all field", Toast.LENGTH_LONG).show();
+                        binding.spinKit.setVisibility(View.INVISIBLE);
+
+
+                    }
+                    else {
+                        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
-                            public void onSuccess(AuthResult authResult) {
-                                binding.spinKit.setVisibility(View.INVISIBLE);
-                                homeIntent();
+                            public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
+
+                                if (task.isSuccessful()){
+
+                                    binding.spinKit.setVisibility(View.INVISIBLE);
+                                    Toast.makeText(getContext(), "Success", Toast.LENGTH_LONG).show();
+                                    homeIntent();
+                                }
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -76,10 +93,6 @@ public class LoginFragment extends Fragment {
                                 Toast.makeText(getContext(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                             }
                         });
-                    }
-                    else {
-                        Toast.makeText(getContext(), "Please ,Verify all field", Toast.LENGTH_LONG).show();
-                        binding.spinKit.setVisibility(View.INVISIBLE);
                     }
                 }
             });

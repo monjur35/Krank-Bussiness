@@ -21,6 +21,7 @@ import com.example.krankbusiness.databinding.FragmentAddProducrBinding;
 import com.example.krankbusiness.models.Product;
 import com.example.krankbusiness.viewModels.KrankViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -35,6 +36,8 @@ public class AddProducrFragment extends Fragment {
     private ProductAdapter productAdapter;
     private LinearLayoutManager linearLayoutManager;
     private List<Product>productList;
+
+    private String uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     private BottomNavigationView bottomNavigationView;
 
@@ -65,7 +68,7 @@ public class AddProducrFragment extends Fragment {
 
         binding.spinKit.setVisibility(View.VISIBLE);
 
-        krankViewModel.getAllProductList().observe(getViewLifecycleOwner(), new Observer<List<Product>>() {
+        krankViewModel.getAllProductList(uid).observe(getViewLifecycleOwner(), new Observer<List<Product>>() {
             @Override
             public void onChanged(List<Product> products) {
                 if (products!=null){

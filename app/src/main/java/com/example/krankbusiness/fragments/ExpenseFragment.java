@@ -20,6 +20,7 @@ import com.example.krankbusiness.databinding.FragmentExpenseBinding;
 import com.example.krankbusiness.models.ExpenseModel;
 import com.example.krankbusiness.viewModels.KrankViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -34,6 +35,8 @@ public class ExpenseFragment extends Fragment {
 
     private ExpenseAdapter expenseAdapter;
     private List<ExpenseModel> expenseModelList;
+
+    private String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     public ExpenseFragment() {
         // Required empty public constructor
@@ -61,7 +64,7 @@ public class ExpenseFragment extends Fragment {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setReverseLayout(true);
 
-        krankViewModel.getExpenseList().observe(getViewLifecycleOwner(), new Observer<List<ExpenseModel>>() {
+        krankViewModel.getExpenseList(uid).observe(getViewLifecycleOwner(), new Observer<List<ExpenseModel>>() {
             @Override
             public void onChanged(List<ExpenseModel> expenseModels) {
                 if (expenseModels!=null){

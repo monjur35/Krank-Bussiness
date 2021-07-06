@@ -20,6 +20,7 @@ import com.example.krankbusiness.adapters.LoanAdapter;
 import com.example.krankbusiness.databinding.FragmentLoanBinding;
 import com.example.krankbusiness.models.LoanModel;
 import com.example.krankbusiness.viewModels.KrankViewModel;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -33,6 +34,7 @@ public class LoanFragment extends Fragment {
     private KrankViewModel krankViewModel;
     private LoanAdapter loanAdapter;
     private List<LoanModel>loanModelList;
+    private String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
     public LoanFragment() {
@@ -57,7 +59,7 @@ public class LoanFragment extends Fragment {
         final LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
 
 
-        krankViewModel.getLoanList().observe(getViewLifecycleOwner(), new Observer<List<LoanModel>>() {
+        krankViewModel.getLoanList(uid).observe(getViewLifecycleOwner(), new Observer<List<LoanModel>>() {
             @Override
             public void onChanged(List<LoanModel> loanModels) {
                 if (loanModels.size()!=0){

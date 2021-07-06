@@ -70,6 +70,7 @@ public class AddOrderFragment extends Fragment {
 
 
     private BottomNavigationView bottomNavigationView;
+    private String uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
     public AddOrderFragment() {
@@ -83,6 +84,8 @@ public class AddOrderFragment extends Fragment {
         krankViewModel = new ViewModelProvider(getActivity()).get(KrankViewModel.class);
         bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
+
+
 
 
         productsName = new ArrayList<>();
@@ -114,7 +117,7 @@ public class AddOrderFragment extends Fragment {
         binding.spinKit.setVisibility(View.VISIBLE);
         //  StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager( 2,StaggeredGridLayoutManager.VERTICAL);
 
-        krankViewModel.getAllProductList().observe(getViewLifecycleOwner(), new Observer<List<Product>>() {
+        krankViewModel.getAllProductList(uid).observe(getViewLifecycleOwner(), new Observer<List<Product>>() {
             @Override
             public void onChanged(List<Product> products) {
 
@@ -295,7 +298,7 @@ public class AddOrderFragment extends Fragment {
                     Toast.makeText(getContext(), "plz ,Verify all field", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    OrderModel orderModel = new OrderModel(null, null, customerName, customerPhone, customerAddress, itemsList, String.valueOf(totalPrice), formattedDate,monthName);
+                    OrderModel orderModel = new OrderModel(null, uid, customerName, customerPhone, customerAddress, itemsList, String.valueOf(totalPrice), formattedDate,monthName);
                     krankViewModel.addOrder(orderModel);
 
 

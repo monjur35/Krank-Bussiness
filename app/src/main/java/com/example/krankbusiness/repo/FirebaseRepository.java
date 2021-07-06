@@ -36,7 +36,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class FirebaseRepository {
-    private FirebaseDatabase firebaseDatabase;
     private FirebaseFirestore firebaseFirestore;
     private String currentUser;
     public MutableLiveData<String> errorMsg=new MutableLiveData<>();
@@ -46,33 +45,43 @@ public class FirebaseRepository {
     private static String EXPENSE_COLLECTION="Expense";
     private static String ORDER_COLLECTION="Order";
     private static String LOANS_COLLECTION="Loans";
+    private static String INITIAL_DATA_COLLECTION="UsersData";
 
 
     public FirebaseRepository() {
-        firebaseDatabase=FirebaseDatabase.getInstance();
-        currentUser= Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
+        currentUser= FirebaseAuth.getInstance().getCurrentUser().getUid();
         firebaseFirestore=FirebaseFirestore.getInstance();
     }
 
-    public MutableLiveData<UserData>fetchUserData(){
+    public MutableLiveData<String> addUserData(UserData userData){
 
-        MutableLiveData<UserData>userDataMutableLiveData=new MutableLiveData<>();
-        DatabaseReference root=firebaseDatabase.getReference("KrankUsers");
-        Query query=root.child(currentUser);
-
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        final DocumentReference documentReference=firebaseFirestore.collection(INITIAL_DATA_COLLECTION).document();
+        MutableLiveData<String>mutableLiveData=new MutableLiveData<>();
+        documentReference.set(userData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                userDataMutableLiveData.postValue(snapshot.getValue(UserData.class));;
+            public void onSuccess(Void unused) {
+
             }
-
+        }).addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-                errorMsg.postValue(error.getMessage());
+            public void onFailure(@NonNull @NotNull Exception e) {
+                mutableLiveData.postValue(e.getLocalizedMessage());
             }
         });
+        return mutableLiveData;
+    }
 
-
+    public MutableLiveData<List<UserData>>getUserData(String uid){
+        MutableLiveData<List<UserData>>userDataMutableLiveData=new MutableLiveData<>();
+        firebaseFirestore.collection(INITIAL_DATA_COLLECTION).whereEqualTo("uId",uid).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                assert value != null;
+                if (!value.isEmpty()){
+                    userDataMutableLiveData.postValue(value.toObjects(UserData.class));
+                }
+            }
+        });
         return userDataMutableLiveData;
     }
 
@@ -94,9 +103,9 @@ public class FirebaseRepository {
 
     }
 
-    public MutableLiveData<List<Product>>getAllProductList(){
+    public MutableLiveData<List<Product>>getAllProductList(String uid){
         MutableLiveData<List<Product>>listMutableLiveData=new MutableLiveData<>();
-        firebaseFirestore.collection(PRODUCTS_COLLECTION).whereEqualTo("uId",currentUser).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection(PRODUCTS_COLLECTION).whereEqualTo("uId",uid).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
                 if (error==null){
@@ -145,9 +154,9 @@ public class FirebaseRepository {
 
     }
 
-    public MutableLiveData<List<ExpenseModel>>getAllExpense(){
+    public MutableLiveData<List<ExpenseModel>>getAllExpense(String uid){
         MutableLiveData<List<ExpenseModel>>listMutableLiveData=new MutableLiveData<>();
-        firebaseFirestore.collection(EXPENSE_COLLECTION).whereEqualTo("userId",currentUser).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection(EXPENSE_COLLECTION).whereEqualTo("userId",uid).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
                 if (error==null){
@@ -166,7 +175,7 @@ public class FirebaseRepository {
         final DocumentReference documentReference=firebaseFirestore.collection(ORDER_COLLECTION).document();
         String orderId=documentReference.getId();
         orderModel.setOderId(orderId);
-        orderModel.setUserId(currentUser);
+
 
         documentReference.set(orderModel).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -182,9 +191,9 @@ public class FirebaseRepository {
 
     }
 
-    public MutableLiveData<List<OrderModel>>getAllOrderList(String date){
+    public MutableLiveData<List<OrderModel>>getAllOrderList(String  uid,String date){
         MutableLiveData<List<OrderModel>>listMutableLiveData=new MutableLiveData<>();
-        firebaseFirestore.collection(ORDER_COLLECTION).whereEqualTo("userId",currentUser).whereEqualTo("date",date).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection(ORDER_COLLECTION).whereEqualTo("userId",uid).whereEqualTo("date",date).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
                 if (error==null){
@@ -199,9 +208,9 @@ public class FirebaseRepository {
     }
 
 
-    public MutableLiveData<List<OrderModel>>getSearchedOrderList(String searchWord){
+    public MutableLiveData<List<OrderModel>>getSearchedOrderList(String uid,String searchWord){
         MutableLiveData<List<OrderModel>>listMutableLiveData=new MutableLiveData<>();
-        firebaseFirestore.collection(ORDER_COLLECTION).whereEqualTo("userId",currentUser).whereEqualTo("customerName",searchWord).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection(ORDER_COLLECTION).whereEqualTo("userId",uid).whereEqualTo("customerName",searchWord).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
                 if (error==null){
@@ -220,7 +229,7 @@ public class FirebaseRepository {
         final DocumentReference documentReference=firebaseFirestore.collection(LOANS_COLLECTION).document();
         String loanId=documentReference.getId();
        loanModel.setLoanId(loanId);
-       loanModel.setUserId(currentUser);
+
 
        documentReference.set(loanModel).addOnSuccessListener(new OnSuccessListener<Void>() {
            @Override
@@ -236,9 +245,9 @@ public class FirebaseRepository {
 
     }
 
-    public MutableLiveData<List<LoanModel>>fetchLoanList(){
+    public MutableLiveData<List<LoanModel>>fetchLoanList(String uid){
         MutableLiveData <List<LoanModel>>listMutableLiveData=new MutableLiveData<>();
-        firebaseFirestore.collection(LOANS_COLLECTION).whereEqualTo("userId",currentUser).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection(LOANS_COLLECTION).whereEqualTo("userId",uid).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
                 if (error==null||!Objects.requireNonNull(value).isEmpty()){
@@ -251,9 +260,9 @@ public class FirebaseRepository {
 
 
 
-    public MutableLiveData<List<OrderModel>>getmonthlySell(String monthName){
+    public MutableLiveData<List<OrderModel>>getmonthlySell(String uid,String monthName){
         MutableLiveData<List<OrderModel>>listMutableLiveData=new MutableLiveData<>();
-        firebaseFirestore.collection(ORDER_COLLECTION).whereEqualTo("userId",currentUser).whereEqualTo("monthName",monthName).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        firebaseFirestore.collection(ORDER_COLLECTION).whereEqualTo("userId",uid).whereEqualTo("monthName",monthName).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
                 if (error==null){

@@ -22,6 +22,7 @@ import com.example.krankbusiness.databinding.FragmentTodayOrderBinding;
 import com.example.krankbusiness.models.OrderModel;
 import com.example.krankbusiness.viewModels.KrankViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -40,6 +41,8 @@ public class TodayOrderFragment extends Fragment {
 
     private OrderListAdapter adapter;
     private List<OrderModel>orderModelList;
+
+    private String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
     public TodayOrderFragment() {
@@ -72,7 +75,7 @@ public class TodayOrderFragment extends Fragment {
         String formattedDate = df.format(c);
 
 
-        krankViewModel.getOrderList(formattedDate).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
+        krankViewModel.getOrderList(uid,formattedDate).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
             @Override
             public void onChanged(List<OrderModel> orderModels) {
                 if (orderModels!=null){
@@ -111,7 +114,7 @@ public class TodayOrderFragment extends Fragment {
 
                }else {
 
-                   krankViewModel.getSearchOrderList(searchWord).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
+                   krankViewModel.getSearchOrderList(uid,searchWord).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
                        @Override
                        public void onChanged(List<OrderModel> orderModels) {
                            orderModelList.clear();

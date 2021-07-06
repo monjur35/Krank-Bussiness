@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import com.example.krankbusiness.activitys.HomeActivity;
 import com.example.krankbusiness.databinding.FragmentInitialDataBinding;
 import com.example.krankbusiness.models.UserData;
+import com.example.krankbusiness.viewModels.KrankViewModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,8 +34,7 @@ public class InitialDataFragment extends Fragment {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser currentUser;
     private FirebaseDatabase firebaseDatabase;
-
-
+    private KrankViewModel krankViewModel;
 
 
     public InitialDataFragment() {
@@ -44,10 +46,11 @@ public class InitialDataFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        binding=FragmentInitialDataBinding.inflate(inflater);
-        firebaseAuth=FirebaseAuth.getInstance();
-        currentUser =firebaseAuth.getCurrentUser();
-        firebaseDatabase=FirebaseDatabase.getInstance();
+        binding = FragmentInitialDataBinding.inflate(inflater);
+        firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = firebaseAuth.getCurrentUser();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        krankViewModel = new ViewModelProvider(getActivity()).get(KrankViewModel.class);
 
         return binding.getRoot();
     }
@@ -56,32 +59,40 @@ public class InitialDataFragment extends Fragment {
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Bundle bundle=getArguments();
-        final String companyName=bundle.getString("companyName");
-        final String mobile=bundle.getString("mobile");
+        Bundle bundle = getArguments();
+        final String companyName = bundle.getString("companyName");
+        final String mobile = bundle.getString("mobile");
 
         binding.submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 binding.spinKit.setVisibility(View.VISIBLE);
 
-                final String capital=binding.capital.getText().toString();
-                final String loan=binding.loan.getText().toString();
-                final String cash=binding.presentCash.getText().toString();
-                final String profit=binding.profit.getText().toString();
-                final String expense=binding.totalExpense.getText().toString();
+                final String capital = binding.capital.getText().toString();
+                final String loan = binding.loan.getText().toString();
+                final String cash = binding.presentCash.getText().toString();
+                final String profit = binding.profit.getText().toString();
+                final String expense = binding.totalExpense.getText().toString();
 
-                if (!companyName.isEmpty()||!mobile.isEmpty()||capital.isEmpty()||!loan.isEmpty()||!cash.isEmpty()||!profit.isEmpty()||!expense.isEmpty()){
-                    UserData userData=new UserData(currentUser.getUid(),companyName,mobile,capital,loan,cash,profit,expense);
-                   // UserProfileChangeRequest userProfileChangeRequest=new UserProfileChangeRequest.Builder().setDisplayName(companyName).build();
+                if (!companyName.isEmpty() || !mobile.isEmpty() || capital.isEmpty() || !loan.isEmpty() || !cash.isEmpty() || !profit.isEmpty() || !expense.isEmpty()) {
+                    UserData userData = new UserData(currentUser.getUid(), companyName, mobile, capital, loan, cash, profit, expense);
+                    // UserProfileChangeRequest userProfileChangeRequest=new UserProfileChangeRequest.Builder().setDisplayName(companyName).build();
 
-                    firebaseDatabase.getReference("KrankUsers").child(currentUser.getUid()).setValue(userData).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    krankViewModel.setUserDAta(userData);
+
+                    binding.spinKit.setVisibility(View.INVISIBLE);
+                    homeIntent();
+
+
+
+
+                  /*  firebaseDatabase.getReference("KrankUsers").child(currentUser.getUid()).setValue(userData).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(getContext(), "Successful", Toast.LENGTH_SHORT).show();
                             binding.spinKit.setVisibility(View.INVISIBLE);
 
-                            homeIntent();
+
 
 
 
@@ -90,13 +101,12 @@ public class InitialDataFragment extends Fragment {
                         @Override
                         public void onFailure(@NonNull @NotNull Exception e) {
                             Toast.makeText(getContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                            binding.spinKit.setVisibility(View.INVISIBLE);
+
                         }
-                    });
+                    });*/
 
 
-                }
-                else {
+                } else {
                     Toast.makeText(getContext(), "verify all field", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -104,7 +114,7 @@ public class InitialDataFragment extends Fragment {
     }
 
     private void homeIntent() {
-        Intent home=new Intent(getActivity(), HomeActivity.class);
+        Intent home = new Intent(getActivity(), HomeActivity.class);
         startActivity(home);
         requireActivity().finish();
     }
