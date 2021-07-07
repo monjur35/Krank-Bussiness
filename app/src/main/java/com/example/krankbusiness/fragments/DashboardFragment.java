@@ -42,6 +42,7 @@ public class DashboardFragment extends Fragment {
 
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
+    private int totalSell;
 
 
 
@@ -78,6 +79,9 @@ public class DashboardFragment extends Fragment {
        getthismonthExpense(month_name);
        getthismonthSell(month_name);
 
+       binding.thisMonthExp.setText(month_name);
+       binding.thisSell.setText(month_name);
+
        krankViewModel.getUserData(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<UserData>>() {
            @Override
            public void onChanged(List<UserData> userData) {
@@ -86,6 +90,7 @@ public class DashboardFragment extends Fragment {
                    binding.capital.setText(user.getTotalCapital());
                    binding.profit.setText(user.getTotalProfit());
                    binding.totalExpense.setText(user.getTotalExpense());
+                   binding.dashBoardLabel.setText(user.getCompanyName());
                    binding.totalCash.setText(user.getTotalCash());
                    binding.totalLoan.setText(user.getTotalLoan());
                    binding.spinKit.setVisibility(View.INVISIBLE);

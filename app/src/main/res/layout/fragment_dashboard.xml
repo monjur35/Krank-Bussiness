@@ -1,62 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.DashboardFragment">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/dashAppbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:elevation="10dp"
-        android:id="@+id/dashAppbar">
+        android:elevation="10dp">
+
         <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/dash_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
-            android:id="@+id/dash_toolbar">
+            android:background="@color/white">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dashboard"
-                    android:fontFamily="@font/new_rocker"
-                    android:textSize="25sp"
-                    android:textColor="@color/red"
                     android:id="@+id/dashBoardLabel"
-                    android:layout_gravity="center"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/new_rocker"
+                    android:text="Dashboard"
+                    android:textColor="#E1FB4646"
+                    android:textSize="25sp" />
 
 
-
-            </LinearLayout></com.google.android.material.appbar.MaterialToolbar>
+            </LinearLayout>
+        </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
+        android:id="@+id/linLayout"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:paddingBottom="20dp"
         android:layout_below="@+id/dashAppbar"
         android:layout_marginTop="10dp"
-        android:id="@+id/linLayout">
+        android:paddingBottom="20dp">
+
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:rowCount="4"
             android:columnCount="2"
-            android:paddingBottom="10dp">
+            android:paddingBottom="10dp"
+            android:rowCount="4">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
-                android:layout_column="0"
-                android:layout_gravity="fill"
                 android:layout_rowWeight="1"
+                android:layout_column="0"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_margin="6dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="5dp">
@@ -64,33 +68,34 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@color/darkBeguni"
                     android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
-
+                    android:orientation="vertical">
 
 
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/textColor"
                         android:layout_marginTop="4dp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center"
                         android:text="Capital"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/new_rocker" />
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
                     <TextView
+                        android:id="@+id/capital"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/red"
                         android:layout_marginTop="4dp"
+                        android:fontFamily="@font/quicksand"
+                        android:gravity="center"
                         android:text="00"
-                        android:textSize="18sp"
-                        android:id="@+id/capital"
-                        android:fontFamily="@font/new_rocker" />
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
 
                 </LinearLayout>
@@ -101,10 +106,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="1"
-                android:layout_column="0"
-                android:layout_gravity="fill"
                 android:layout_rowWeight="1"
+                android:layout_column="0"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_margin="06dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
@@ -112,33 +117,33 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@color/offwhite"
                     android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
-
+                    android:orientation="vertical">
 
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_medium"
                         android:gravity="center"
-                        android:textColor="@color/textColor"
                         android:text="Total Expense"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/new_rocker" />
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
                     <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/red"
-                        android:layout_marginTop="4dp"
-                        android:text="00"
-                        android:textSize="18sp"
                         android:id="@+id/totalExpense"
-                        android:fontFamily="@font/new_rocker" />
-
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/quicksand"
+                        android:gravity="center"
+                        android:text="00"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
 
 
                 </LinearLayout>
@@ -148,46 +153,46 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/teal_700"
                 android:layout_row="1"
-                android:layout_column="1"
-                android:layout_gravity="fill"
                 android:layout_rowWeight="1"
+                android:layout_column="1"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_margin="6dp"
+                android:background="@color/teal_700"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@color/lightGreen"
                     android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
-
+                    android:orientation="vertical">
 
 
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_medium"
                         android:gravity="center"
-                        android:textColor="@color/textColor"
                         android:text="Total Sell"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/new_rocker" />
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
                     <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/red"
-                        android:layout_marginTop="4dp"
-                        android:text="00"
-                        android:textSize="18sp"
                         android:id="@+id/totalSell"
-                        android:fontFamily="@font/new_rocker" />
-
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/quicksand"
+                        android:gravity="center"
+                        android:text="00"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
 
                 </LinearLayout>
@@ -198,41 +203,61 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="2"
-                android:layout_column="1"
-                android:layout_gravity="fill"
                 android:layout_rowWeight="1"
+                android:layout_column="1"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_margin="6dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@color/lightBlue"
                     android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
+                    android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/textColor"
-                        android:text="This Month Sell"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/new_rocker" />
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/thisSell"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="19sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:text=" Sell"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
                     <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/red"
-                        android:layout_marginTop="4dp"
-                        android:text="00"
-                        android:textSize="18sp"
                         android:id="@+id/thisMonthSell"
-                        android:fontFamily="@font/new_rocker" />
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/quicksand"
+                        android:gravity="center"
+                        android:text="00"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
 
                 </LinearLayout>
@@ -240,47 +265,48 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/updateLogInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/updateLogInfo"
                 android:layout_row="0"
-                android:layout_column="1"
-                android:layout_gravity="fill"
                 android:layout_rowWeight="1"
+                android:layout_column="1"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_margin="6dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@color/baaaaal"
                     android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
+                    android:orientation="vertical">
 
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_medium"
                         android:gravity="center"
-                        android:textColor="@color/textColor"
                         android:text="Total Profit"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/new_rocker" />
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
                     <TextView
+                        android:id="@+id/profit"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/red"
                         android:layout_marginTop="4dp"
+                        android:fontFamily="@font/quicksand"
+                        android:gravity="center"
                         android:text="00"
-                        android:id="@+id/profit"
-                        android:textSize="18sp"
-                        android:fontFamily="@font/new_rocker" />
-
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
 
                 </LinearLayout>
@@ -291,89 +317,63 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="2"
-                android:layout_column="0"
-                android:layout_gravity="fill"
                 android:layout_rowWeight="1"
+                android:layout_column="0"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_margin="6dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@color/cardnotinStock"
                     android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
+                    android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/textColor"
-                        android:text="This Month Expense"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/new_rocker" />
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/thisMonthExp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="19sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="center"
+                            android:text=" Expense"
+                            android:textColor="@color/white"
+                            android:textSize="19sp" />
+
+                    </LinearLayout>
+
+
                     <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/red"
-                        android:layout_marginTop="4dp"
-                        android:text="00"
-                        android:textSize="18sp"
                         android:id="@+id/thisMonthExpense"
-                        android:fontFamily="@font/new_rocker" />
-
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="3"
-                android:layout_column="1"
-                android:layout_gravity="fill"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="6dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
-
-
-                    <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/textColor"
-                        android:text="Total Loan"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/new_rocker" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/red"
                         android:layout_marginTop="4dp"
+                        android:fontFamily="@font/quicksand"
+                        android:gravity="center"
                         android:text="00"
-                        android:id="@+id/totalLoan"
-                        android:textSize="18sp"
-                        android:fontFamily="@font/new_rocker" />
-
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
 
                 </LinearLayout>
@@ -384,42 +384,91 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="3"
-                android:layout_column="0"
-                android:layout_gravity="fill"
                 android:layout_rowWeight="1"
+                android:layout_column="1"
                 android:layout_columnWeight="1"
+                android:layout_gravity="fill"
                 android:layout_margin="6dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@color/purple_700"
                     android:gravity="center"
-                    android:layout_gravity="center_vertical|center_horizontal">
+                    android:orientation="vertical">
+
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_medium"
                         android:gravity="center"
-                        android:textColor="@color/textColor"
-                        android:text="Total Cash"
-                        android:textSize="20sp"
-                        android:fontFamily="@font/new_rocker" />
+                        android:text="Total Loan"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
                     <TextView
+                        android:id="@+id/totalLoan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/quicksand"
+                        android:gravity="center"
+                        android:text="00"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_rowWeight="1"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@color/colorAccent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center"
+                        android:text="Total Cash"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/totalCash"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/red"
                         android:layout_marginTop="4dp"
+                        android:fontFamily="@font/quicksand"
+                        android:gravity="center"
                         android:text="00"
-                        android:id="@+id/totalCash"
-                        android:textSize="18sp"
-                        android:fontFamily="@font/new_rocker" />
-
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
 
                 </LinearLayout>
@@ -427,11 +476,12 @@
             </androidx.cardview.widget.CardView>
         </GridLayout>
     </LinearLayout>
+
     <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barChart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/barChart"
-        android:layout_below="@+id/linLayout"/>
+        android:layout_below="@+id/linLayout" />
 
 
     <com.github.ybq.android.spinkit.SpinKitView
@@ -439,17 +489,12 @@
         style="@style/SpinKitView.FadingCircle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
         android:padding="10dp"
         android:visibility="visible"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
         app:SpinKit_Color="#DC00796B" />
-
-
-
-    
-
 
 
 </RelativeLayout>
