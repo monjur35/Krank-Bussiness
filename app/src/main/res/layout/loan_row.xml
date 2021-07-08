@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand_medium"
             android:text="Name"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Amount : "
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -51,7 +51,7 @@
                 android:id="@+id/amountInLoanROw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="500"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="BDT"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Re-Payed:"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -85,7 +85,7 @@
                 android:id="@+id/repayed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="20"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -100,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Deu   :"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -109,7 +109,7 @@
                 android:id="@+id/due"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="0"
                 android:textColor="@color/white"
                 android:textSize="16sp" />

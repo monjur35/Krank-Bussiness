@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Customer Name : "
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -38,7 +38,7 @@
                 android:id="@+id/customerNameInRow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="Iron maiden :"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Phone  :"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -66,7 +66,7 @@
                 android:id="@+id/phoneInRow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="015444"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Address  :"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -91,7 +91,7 @@
                 android:id="@+id/addressInrow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text=" "
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -107,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Total Price : "
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -116,7 +116,7 @@
                 android:id="@+id/totalPriceinRow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="500 bdt"
                 android:textColor="@color/white"
                 android:textSize="16sp" />

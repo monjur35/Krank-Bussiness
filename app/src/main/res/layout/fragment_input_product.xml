@@ -19,14 +19,14 @@
             android:text="Add Product"
             android:textSize="20sp"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand_medium"
             android:textColor="@color/red"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:layout_marginTop="35dp"
             android:layout_marginHorizontal="5dp"
             android:text="Product Name" />
@@ -40,7 +40,7 @@
             android:background="@drawable/edit_text_style"
             android:elevation="5dp"
             android:inputType="text"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Product Name"
             android:padding="5dp" />
 
@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:layout_marginHorizontal="5dp"
             android:text="Selling Price" />
 
@@ -58,7 +58,7 @@
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Selling Price"
             android:inputType="number"
             android:layout_marginHorizontal="5dp"
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:layout_marginHorizontal="5dp"
             android:text="Production Cost" />
 
@@ -81,7 +81,7 @@
             android:background="@drawable/edit_text_style"
             android:elevation="5dp"
             android:inputType="number"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Production Cost"
             android:padding="5dp" />
 
@@ -89,7 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:layout_marginHorizontal="5dp"
             android:text="Size in Stock" />
 
@@ -110,7 +110,7 @@
                 android:background="@drawable/edit_text_style"
                 android:elevation="5dp"
                 android:inputType="number"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:hint="M"
                 android:padding="5dp" />
             <com.google.android.material.textfield.TextInputEditText
@@ -123,7 +123,7 @@
                 android:elevation="5dp"
                 android:textAlignment="center"
                 android:inputType="number"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:hint="L"
                 android:padding="5dp" />
             <com.google.android.material.textfield.TextInputEditText
@@ -135,7 +135,7 @@
                 android:background="@drawable/edit_text_style"
                 android:elevation="5dp"
                 android:textAlignment="center"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:hint="XL"
                 android:inputType="number"
                 android:padding="5dp" />
@@ -149,7 +149,7 @@
                 android:elevation="5dp"
                 android:textAlignment="center"
                 android:inputType="number"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:hint="2XL"
                 android:padding="5dp" />
             <com.google.android.material.textfield.TextInputEditText
@@ -162,7 +162,7 @@
                 android:elevation="5dp"
                 android:inputType="number"
                 android:textAlignment="center"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:hint="3XL"
                 android:padding="5dp" />
 
@@ -178,7 +178,7 @@
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/new_rocker"
+        android:fontFamily="@font/quicksand_medium"
         android:textSize="18sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

@@ -18,7 +18,7 @@
             android:text="Add Order"
             android:textSize="20sp"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand_medium"
             android:textColor="@color/red"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,19 +30,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total :"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:textColor="@color/red"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 00"
                 android:id="@+id/totalPrice"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:textColor="@color/red"/>
 
         </LinearLayout>
@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
 
             android:layout_marginHorizontal="5dp"
             android:text="Customer Name" />
@@ -67,7 +67,7 @@
             android:background="@drawable/edit_text_style"
             android:elevation="5dp"
             android:inputType="text"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Customer Name"
             android:padding="5dp" />
 
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:layout_marginHorizontal="5dp"
             android:text="Phone" />
 
@@ -85,7 +85,7 @@
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Phone"
             android:inputType="phone"
             android:layout_marginHorizontal="5dp"
@@ -95,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:layout_marginHorizontal="5dp"
             android:text="Address" />
 
@@ -109,7 +109,7 @@
             android:background="@drawable/edit_text_style"
             android:elevation="5dp"
             android:inputType="text"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Address"
             android:padding="5dp" />
 
@@ -131,7 +131,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
-                    android:fontFamily="@font/new_rocker"
+                    android:fontFamily="@font/quicksand"
                     android:inputType="none"
                     android:padding="10dp"
                     android:text="Select" />
@@ -150,7 +150,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
-                    android:fontFamily="@font/new_rocker"
+                    android:fontFamily="@font/quicksand"
                     android:inputType="none"
                     android:padding="10dp"
                     android:text="Select" />
@@ -173,7 +173,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
-                    android:fontFamily="@font/new_rocker"
+                    android:fontFamily="@font/quicksand"
                     android:inputType="none"
                     android:padding="10dp"
                     android:enabled="false"
@@ -193,7 +193,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
-                    android:fontFamily="@font/new_rocker"
+                    android:fontFamily="@font/quicksand"
                     android:inputType="none"
                     android:enabled="false"
                     android:padding="10dp"
@@ -217,7 +217,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
-                    android:fontFamily="@font/new_rocker"
+                    android:fontFamily="@font/quicksand"
                     android:inputType="none"
                     android:enabled="false"
                     android:padding="10dp"
@@ -237,7 +237,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
-                    android:fontFamily="@font/new_rocker"
+                    android:fontFamily="@font/quicksand"
                     android:inputType="none"
                     android:enabled="false"
                     android:padding="10dp"
@@ -261,7 +261,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
-                    android:fontFamily="@font/new_rocker"
+                    android:fontFamily="@font/quicksand"
                     android:inputType="none"
                     android:enabled="false"
                     android:padding="10dp"
@@ -281,7 +281,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
-                    android:fontFamily="@font/new_rocker"
+                    android:fontFamily="@font/quicksand"
                     android:inputType="none"
                     android:enabled="false"
                     android:padding="10dp"
@@ -300,7 +300,7 @@
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/new_rocker"
+        android:fontFamily="@font/quicksand_medium"
         android:textSize="18sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

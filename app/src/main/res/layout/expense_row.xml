@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginRight="5dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Expense Title"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -41,7 +41,7 @@
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:gravity="end"
                 android:text="12/2/21"
                 android:textColor="@color/white"
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Amount : "
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -69,7 +69,7 @@
                 android:id="@+id/amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="500"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="BDT"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
@@ -94,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Under of   :"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -103,7 +103,7 @@
                 android:id="@+id/undderOf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="Monjur "
                 android:textColor="@color/white"
                 android:textSize="16sp" />

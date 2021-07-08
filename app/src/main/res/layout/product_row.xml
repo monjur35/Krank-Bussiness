@@ -27,19 +27,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Product Name : "
                 android:layout_marginRight="5dp"
-                android:textColor="@color/textColor"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/productName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="Iron maiden :"
-                android:textColor="@color/textColor"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -51,19 +51,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Price : "
                 android:layout_marginRight="40dp"
-                android:textColor="@color/textColor"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="500 bdt"
-                android:textColor="@color/textColor"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -75,19 +75,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="In Stock  :"
                 android:layout_marginRight="40dp"
-                android:textColor="@color/textColor"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/inStock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/new_rocker"
+                android:fontFamily="@font/quicksand"
                 android:text="00 "
-                android:textColor="@color/textColor"
+                android:textColor="@color/white"
                 android:textSize="16sp" />
 
         </LinearLayout>

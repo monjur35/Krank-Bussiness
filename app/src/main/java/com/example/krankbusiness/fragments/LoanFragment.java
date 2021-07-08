@@ -62,16 +62,15 @@ public class LoanFragment extends Fragment {
         krankViewModel.getLoanList(uid).observe(getViewLifecycleOwner(), new Observer<List<LoanModel>>() {
             @Override
             public void onChanged(List<LoanModel> loanModels) {
-                if (loanModels.size()!=0){
+                if (loanModels!=null){
                     loanModelList.addAll(loanModels);
                     binding.loanRv.setLayoutManager(linearLayoutManager);
                     binding.loanRv.setAdapter(loanAdapter);
                     loanAdapter.notifyDataSetChanged();
-                    binding.spinKit.setVisibility(View.INVISIBLE);
                 }else {
                     Toast.makeText(getContext(), "No data found", Toast.LENGTH_SHORT).show();
-                    binding.spinKit.setVisibility(View.INVISIBLE);
                 }
+                binding.spinKit.setVisibility(View.INVISIBLE);
 
             }
         });

@@ -24,7 +24,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Today's Order"
-                    android:fontFamily="@font/new_rocker"
+                    android:fontFamily="@font/quicksand_medium"
                     android:textSize="25sp"
                     android:id="@+id/dashBoardLabel"
                     android:layout_gravity="center"/>
@@ -60,6 +60,7 @@
         android:background="@drawable/edit_text_style"
         android:layout_below="@+id/dashAppbar"
         android:hint="Search here..."
+        android:fontFamily="@font/quicksand"
         android:layout_margin="10dp"
         android:elevation="10dp"
         android:padding="5dp"

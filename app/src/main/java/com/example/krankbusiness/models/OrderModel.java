@@ -12,6 +12,10 @@ public class OrderModel {
     private String totalPrice;
     private String date;
     private String monthName;
+    private Boolean isPickedUp;
+    private Boolean isDelivered;
+    private Boolean isReturned;
+
 
 
     public OrderModel() {

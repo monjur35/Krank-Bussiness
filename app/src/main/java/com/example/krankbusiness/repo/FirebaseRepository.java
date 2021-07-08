@@ -228,6 +228,7 @@ public class FirebaseRepository {
 
         final DocumentReference documentReference=firebaseFirestore.collection(LOANS_COLLECTION).document();
         String loanId=documentReference.getId();
+        loanModel.setUserId(currentUser);
        loanModel.setLoanId(loanId);
 
 

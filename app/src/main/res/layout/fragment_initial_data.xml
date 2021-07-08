@@ -19,7 +19,7 @@
         android:text="Initial data"
         android:layout_marginTop="-100dp"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/new_rocker"
+        android:fontFamily="@font/quicksand_medium"
         android:textSize="20sp"
         android:id="@+id/registrionText"/>
 
@@ -40,7 +40,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Present Capital"
             android:inputType="numberDecimal"
             android:padding="10dp" />
@@ -53,7 +53,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Total Loan"
             android:inputType="number"
             android:padding="10dp" />
@@ -67,7 +67,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Present Cash"
             android:inputType="textEmailAddress"
             android:padding="10dp" />
@@ -80,7 +80,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Total profit"
             android:inputType="numberDecimal"
             android:padding="10dp" />
@@ -93,7 +93,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Total Expense"
             android:inputType="numberDecimal"
             android:padding="10dp" />
@@ -112,7 +112,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="50dp"
         android:paddingHorizontal="50dp"
-        android:fontFamily="@font/new_rocker"
+        android:fontFamily="@font/quicksand_medium"
         android:textAllCaps="false"
         android:textSize="18sp"
         android:id="@+id/submit"/>

@@ -24,7 +24,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Expense"
-                    android:fontFamily="@font/new_rocker"
+                    android:fontFamily="@font/quicksand_medium"
                     android:textSize="25sp"
                     android:id="@+id/dashBoardLabel"
                     android:layout_gravity="center"/>

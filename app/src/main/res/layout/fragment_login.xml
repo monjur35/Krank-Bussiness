@@ -21,7 +21,7 @@
         android:text="Log in"
         android:layout_marginTop="-100dp"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/new_rocker"
+        android:fontFamily="@font/quicksand_medium"
         android:textSize="20sp"
         android:id="@+id/logIn"/>
     <LinearLayout
@@ -41,7 +41,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:padding="10dp" />
@@ -54,7 +54,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="10dp" />
@@ -74,19 +74,19 @@
         android:layout_margin="60dp"
         android:paddingHorizontal="50dp"
         android:textSize="20sp"
-        android:fontFamily="@font/new_rocker"
+        android:fontFamily="@font/quicksand"
         android:textAllCaps="false"
         android:id="@+id/loginBtn"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Need account?Registration"
+        android:text="Need account? Registration"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:fontFamily="@font/new_rocker"
-        android:textSize="20sp"
-        android:layout_marginBottom="35dp"
+        android:fontFamily="@font/quicksand"
+        android:textSize="16sp"
+        android:layout_marginBottom="30dp"
         android:clickable="true"
         android:id="@+id/registratinText"
         android:focusable="true" />

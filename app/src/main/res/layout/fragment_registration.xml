@@ -19,7 +19,7 @@
         android:text="Registration"
         android:layout_marginTop="-100dp"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/new_rocker"
+        android:fontFamily="@font/quicksand_medium"
         android:textSize="20sp"
         android:id="@+id/registrionText"/>
 
@@ -40,7 +40,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Company Name"
             android:inputType="textEmailAddress"
             android:padding="10dp" />
@@ -53,7 +53,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Mobile"
             android:inputType="number"
             android:padding="10dp" />
@@ -67,7 +67,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:padding="10dp" />
@@ -80,7 +80,7 @@
             android:layout_marginTop="10dp"
             android:elevation="5dp"
             android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="10dp" />
@@ -100,7 +100,7 @@
         android:layout_margin="50dp"
         android:paddingHorizontal="50dp"
         android:textSize="18sp"
-        android:fontFamily="@font/new_rocker"
+        android:fontFamily="@font/quicksand_medium"
         android:textAllCaps="false"
         android:id="@+id/reginBtn"/>
     <com.github.ybq.android.spinkit.SpinKitView

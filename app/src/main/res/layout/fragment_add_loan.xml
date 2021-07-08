@@ -21,14 +21,14 @@
             android:text="Add Loan"
             android:textSize="20sp"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand_medium"
             android:textColor="@color/red"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:layout_marginTop="35dp"
             android:layout_marginHorizontal="5dp"
             android:text="Lender Name" />
@@ -42,7 +42,7 @@
             android:background="@drawable/edit_text_style"
             android:elevation="5dp"
             android:inputType="text"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Name"
             android:padding="5dp" />
 
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:layout_marginHorizontal="5dp"
             android:text="Amount" />
 
@@ -65,7 +65,7 @@
             android:background="@drawable/edit_text_style"
             android:elevation="5dp"
             android:inputType="numberDecimal"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:hint="Amount"
             android:padding="5dp" />
 
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:text="Select Date"
             android:textAllCaps="false"
-            android:fontFamily="@font/new_rocker"
+            android:fontFamily="@font/quicksand"
             android:textSize="17sp"
             android:visibility="visible"
             android:id="@+id/selectdate"/>
@@ -98,7 +98,7 @@
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/new_rocker"
+        android:fontFamily="@font/quicksand_medium"
         android:textSize="18sp"
         android:layout_below="@+id/llm"
         android:layout_alignParentBottom="false"
