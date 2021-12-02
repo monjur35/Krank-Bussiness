@@ -5,17 +5,19 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
+
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.krankbusiness.R;
+
+
+
 import com.example.krankbusiness.databinding.FragmentDashboardBinding;
 import com.example.krankbusiness.models.ExpenseModel;
 import com.example.krankbusiness.models.OrderModel;
@@ -27,22 +29,24 @@ import com.google.firebase.auth.FirebaseUser;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Objects;
-import java.util.concurrent.Executor;
 
 
 public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
     private KrankViewModel krankViewModel;
-    private int totalExpense;
-    private int monthlySell;
+    private int totalExpense=0;
+    private int monthlyExpense=0;
+    private int monthlySell=0;
+    private int totalSell=0;
+    private int totalCash=0;
 
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
-    private int totalSell;
+
 
 
 
@@ -70,7 +74,9 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.spinKit.setVisibility(View.VISIBLE);
+       // binding.spinKit.setVisibility(View.VISIBLE);
+
+
 
         Calendar cal=Calendar.getInstance();
         SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
@@ -78,6 +84,7 @@ public class DashboardFragment extends Fragment {
 
        getthismonthExpense(month_name);
        getthismonthSell(month_name);
+       getTotalCash();
 
        binding.thisMonthExp.setText(month_name);
        binding.thisSell.setText(month_name);
@@ -99,6 +106,20 @@ public class DashboardFragment extends Fragment {
        });
 
 
+
+
+        List<Pair<Float,String>> pairList = new ArrayList<>();
+
+        pairList.add(new Pair<>(1f,"fsdfd"));
+        pairList.add(new Pair<>(2f,"fsdfd"));
+        pairList.add(new Pair<>(3f,"fsdfd"));
+        pairList.add(new Pair<>(4f,"fsdfd"));
+        pairList.add(new Pair<>(3f,"fsdfd"));
+
+
+
+        //binding.barChart.show((LinkedHashMap<String, Float>) pairList);
+       // binding.barChart.animate((LinkedHashMap<String, Float>) pairList);
 
 
        /* krankViewModel.getUserData().observe(getViewLifecycleOwner(), new Observer<UserData>() {
@@ -128,18 +149,38 @@ public class DashboardFragment extends Fragment {
             }
         });*/
 
+
+
     }
 
+    private void getTotalCash() {
+        totalCash=totalSell-totalExpense;
+        binding.totalCash.setText(String.valueOf(totalCash));
+    }
+
+
     private void getthismonthSell(String month_name) {
-        krankViewModel.getMonthlySell(firebaseUser.getUid(), month_name).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
+        krankViewModel.getTotalSell(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
             @Override
             public void onChanged(List<OrderModel> orderModels) {
                 if (orderModels!=null){
                     for (int i=0;i<orderModels.size();i++){
-                        monthlySell=monthlySell+Integer.parseInt(orderModels.get(i).getTotalPrice());
-                        binding.thisMonthSell.setText(String.valueOf(monthlySell));
+
+                        totalSell=totalSell+Integer.parseInt(orderModels.get(i).getTotalPrice());
+                        binding.totalSell.setText(String.valueOf(totalSell));
+
+                        if (orderModels.get(i).getMonthName()!=null){
+                            if (orderModels.get(i).getMonthName().equals(month_name)){
+                                monthlySell=monthlySell+Integer.parseInt(orderModels.get(i).getTotalPrice());
+                                binding.thisMonthSell.setText(String.valueOf(monthlySell));
+                            }
+                        }
+
+
+
                     }
                 }
+                getTotalCash();
 
             }
         });
@@ -149,13 +190,18 @@ public class DashboardFragment extends Fragment {
         krankViewModel.getExpenseList(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<ExpenseModel>>() {
             @Override
             public void onChanged(List<ExpenseModel> expenseModels) {
+                Log.e("TAG", "onChanged: "+firebaseUser.getUid() );
                 for (int i=0;i<expenseModels.size();i++){
                     Log.e("TAG", "Expense : "+expenseModels.size() );
+                    totalExpense=totalExpense+Integer.parseInt(expenseModels.get(i).getAmount());
+                    binding.totalExpense.setText(String.valueOf(totalExpense));
                     if (expenseModels.get(i).getMonthName().equals(month_name)){
-                        totalExpense=totalExpense+Integer.parseInt(expenseModels.get(i).getAmount());
-                        binding.thisMonthExpense.setText(String.valueOf(totalExpense));
+                        monthlyExpense = monthlyExpense +Integer.parseInt(expenseModels.get(i).getAmount());
+                        binding.thisMonthExpense.setText(String.valueOf(monthlyExpense));
                     }
                 }
+
+                getTotalCash();
             }
         });
     }

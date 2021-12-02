@@ -75,7 +75,7 @@ public class TodayOrderFragment extends Fragment {
         String formattedDate = df.format(c);
 
 
-        krankViewModel.getOrderList(uid,formattedDate).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
+        krankViewModel.getOrderListByDate(uid,formattedDate).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
             @Override
             public void onChanged(List<OrderModel> orderModels) {
                 if (orderModels!=null){

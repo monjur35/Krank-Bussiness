@@ -304,6 +304,7 @@ public class AddOrderFragment extends Fragment {
 
                     Navigation.findNavController(v).navigate(R.id.action_addOrderFragment_to_todayOrderFragment);
 
+
                 }
 
 

@@ -475,11 +475,23 @@
         </GridLayout>
     </LinearLayout>
 
-    <com.github.mikephil.charting.charts.BarChart
+
+    <com.db.williamchart.view.BarChartView
         android:id="@+id/barChart"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linLayout" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linLayout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:chart_axis="xy"
+        app:chart_barsColor="@color/colorPrimaryDark"
+        app:chart_barsRadius="20dp"
+        app:chart_labelsColor="#FF70977F"
+        app:chart_labelsFont="@font/quicksand"
+        app:chart_labelsSize="10sp"
+        app:chart_spacing="100dp"
+        />
+
 
 
     <com.github.ybq.android.spinkit.SpinKitView
@@ -491,7 +503,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100dp"
         android:padding="10dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:SpinKit_Color="#DC00796B" />
 
 

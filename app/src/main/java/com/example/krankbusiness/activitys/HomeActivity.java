@@ -27,6 +27,7 @@ public class HomeActivity extends AppCompatActivity {
         networkChangeListener=new NetworkChangeListener();
 
         final NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+        assert navHostFragment != null;
         final NavController navController = navHostFragment.getNavController();
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);

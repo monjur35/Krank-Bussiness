@@ -27,6 +27,8 @@ public class KrankViewModel extends AndroidViewModel {
         firebaseRepository=new FirebaseRepository();
 
     }
+
+    //User Data
     public MutableLiveData<String> setUserDAta(UserData userData){
         return firebaseRepository.addUserData(userData);
     }
@@ -37,6 +39,7 @@ public class KrankViewModel extends AndroidViewModel {
         return firebaseRepository.errorMsg;
     }
 
+    //Product
 
     public void addNewProduct(Product product){
         firebaseRepository.addNewProduct(product);
@@ -49,6 +52,9 @@ public class KrankViewModel extends AndroidViewModel {
     public MutableLiveData<Product>getProductDetails(String productId){
         return firebaseRepository.fetchProductDetailById(productId);
     }
+
+    //Expenses
+
     public void addExpense(ExpenseModel expenseModel){
         firebaseRepository.addExpense(expenseModel);
     }
@@ -56,17 +62,25 @@ public class KrankViewModel extends AndroidViewModel {
         return firebaseRepository.getAllExpense(uid);
     }
 
+    //Order
+
     public void addOrder(OrderModel orderModel){
         firebaseRepository.addOrder(orderModel);
     }
 
-    public MutableLiveData<List<OrderModel>>getOrderList(String  uid,String date){
-        return firebaseRepository.getAllOrderList(uid, date);
+    public MutableLiveData<List<OrderModel>>getOrderListByDate(String  uid,String date){
+        return firebaseRepository.getAllOrderListByDate(uid, date);
+    }
+    public MutableLiveData<List<OrderModel>>getOrderList(String  uid){
+        return firebaseRepository.getAllOrderList(uid);
     }
 
     public MutableLiveData<List<OrderModel>>getSearchOrderList(String uid,String data){
         return firebaseRepository.getSearchedOrderList(uid,data);
     }
+
+    //Loans
+
     public void addLoans(LoanModel loanModel){
         firebaseRepository.addLoan(loanModel);
     }
@@ -74,8 +88,8 @@ public class KrankViewModel extends AndroidViewModel {
         return firebaseRepository.fetchLoanList(uid);
     }
 
-    public MutableLiveData<List<OrderModel>>getMonthlySell(String uid,String month){
-        return firebaseRepository.getmonthlySell(uid, month);
+    public MutableLiveData<List<OrderModel>>getTotalSell(String uid){
+        return firebaseRepository.getTotalSell(uid);
     }
 
 
