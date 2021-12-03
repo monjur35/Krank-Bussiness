@@ -6,11 +6,11 @@
     tools:context=".fragments.InitialDataFragment">
 
     <ImageView
+        android:id="@+id/logo_text"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:src="@drawable/ic_black_krank_01"
         android:layout_marginTop="-50dp"
-        android:id="@+id/logo_text"/>
+        android:src="@drawable/ic_black_krank_01" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"

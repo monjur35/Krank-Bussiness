@@ -10,19 +10,18 @@ public class OrderModel {
     private String customerAddress;
    private List<Items> itemsList;
     private String totalPrice;
+    private String discount;
     private String date;
     private String monthName;
-    private Boolean isPickedUp;
-    private Boolean isDelivered;
-    private Boolean isReturned;
+   private String deliveryStatus;
 
 
 
     public OrderModel() {
     }
 
-    public OrderModel(String oderId, String userId, String customerName, String customerPhone,
-                      String customerAddress, List<Items> itemsList, String totalPrice, String date,String monthName) {
+    public OrderModel(String oderId, String userId, String customerName, String customerPhone, String customerAddress,
+                      List<Items> itemsList, String totalPrice, String discount, String date, String monthName, String deliveryStatus) {
         this.oderId = oderId;
         this.userId = userId;
         this.customerName = customerName;
@@ -30,8 +29,10 @@ public class OrderModel {
         this.customerAddress = customerAddress;
         this.itemsList = itemsList;
         this.totalPrice = totalPrice;
+        this.discount = discount;
         this.date = date;
         this.monthName = monthName;
+        this.deliveryStatus = deliveryStatus;
     }
 
     public String getOderId() {
@@ -104,5 +105,21 @@ public class OrderModel {
 
     public void setMonthName(String monthName) {
         this.monthName = monthName;
+    }
+
+    public String getDeliveryStatus() {
+        return deliveryStatus;
+    }
+
+    public void setDeliveryStatus(String deliveryStatus) {
+        this.deliveryStatus = deliveryStatus;
+    }
+
+    public String getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(String discount) {
+        this.discount = discount;
     }
 }

@@ -32,7 +32,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class FirebaseRepository {
@@ -204,9 +206,13 @@ public class FirebaseRepository {
             }
         });
 
+
         return listMutableLiveData;
 
     }
+
+
+
 
     public MutableLiveData<List<OrderModel>>getAllOrderList(String  uid){
         MutableLiveData<List<OrderModel>>listMutableLiveData=new MutableLiveData<>();
@@ -222,6 +228,42 @@ public class FirebaseRepository {
 
         return listMutableLiveData;
 
+    }
+    public MutableLiveData<OrderModel>getOrderDetailsById(String orderId){
+        MutableLiveData<OrderModel>orderModelMutableLiveData=new MutableLiveData<>();
+        firebaseFirestore.collection(ORDER_COLLECTION).document(orderId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error==null && value!=null){
+                    orderModelMutableLiveData.postValue(value.toObject(OrderModel.class));
+                }
+            }
+        });
+        return orderModelMutableLiveData;
+    }
+
+
+
+    public void updateDeliveryStatus(String orderId,String status){
+        final DocumentReference documentReference=firebaseFirestore.collection(ORDER_COLLECTION).document(orderId);
+
+        Map<String ,Object> map=new HashMap<>();
+        map.put("deliveryStatus",status);
+
+
+        Log.e("TAG2","on failure"+orderId);
+
+        documentReference.update(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Log.e("TAG2","onComplete");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.e("TAG2","on failure  :"+e.getLocalizedMessage());
+            }
+        });
     }
 
 

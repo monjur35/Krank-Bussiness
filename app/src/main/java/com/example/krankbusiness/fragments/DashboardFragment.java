@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -97,7 +99,7 @@ public class DashboardFragment extends Fragment {
                    binding.capital.setText(user.getTotalCapital());
                    binding.profit.setText(user.getTotalProfit());
                    binding.totalExpense.setText(user.getTotalExpense());
-                   binding.dashBoardLabel.setText(user.getCompanyName());
+                 //  binding.dashBoardLabel.setText(user.getCompanyName());
                    binding.totalCash.setText(user.getTotalCash());
                    binding.totalLoan.setText(user.getTotalLoan());
                    binding.spinKit.setVisibility(View.INVISIBLE);
@@ -160,30 +162,35 @@ public class DashboardFragment extends Fragment {
 
 
     private void getthismonthSell(String month_name) {
-        krankViewModel.getTotalSell(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
-            @Override
-            public void onChanged(List<OrderModel> orderModels) {
-                if (orderModels!=null){
-                    for (int i=0;i<orderModels.size();i++){
 
-                        totalSell=totalSell+Integer.parseInt(orderModels.get(i).getTotalPrice());
-                        binding.totalSell.setText(String.valueOf(totalSell));
+        new Thread(() -> new Handler(Looper.getMainLooper()).post(() -> {
+            krankViewModel.getTotalSell(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
+                @Override
+                public void onChanged(List<OrderModel> orderModels) {
+                    if (orderModels!=null){
+                        for (int i=0;i<orderModels.size();i++){
 
-                        if (orderModels.get(i).getMonthName()!=null){
-                            if (orderModels.get(i).getMonthName().equals(month_name)){
-                                monthlySell=monthlySell+Integer.parseInt(orderModels.get(i).getTotalPrice());
-                                binding.thisMonthSell.setText(String.valueOf(monthlySell));
+                            if (orderModels.get(i).getDeliveryStatus().equals("Delivered")){
+
+                                totalSell=totalSell+Integer.parseInt(orderModels.get(i).getTotalPrice());
+                                binding.totalSell.setText(String.valueOf(totalSell));
+
+                                if (orderModels.get(i).getMonthName()!=null){
+                                    if (orderModels.get(i).getMonthName().equals(month_name)){
+                                        monthlySell=monthlySell+Integer.parseInt(orderModels.get(i).getTotalPrice());
+                                        binding.thisMonthSell.setText(String.valueOf(monthlySell));
+                                    }
+                                }
                             }
+
                         }
-
-
-
                     }
-                }
-                getTotalCash();
+                    getTotalCash();
 
-            }
-        });
+                }
+            });
+        })).start();
+
     }
 
     private void getthismonthExpense(String month_name){

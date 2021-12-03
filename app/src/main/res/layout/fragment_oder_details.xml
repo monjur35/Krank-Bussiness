@@ -12,7 +12,7 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:id="@+id/ddddddddd"
-        android:background="@drawable/order_status_bg">
+        android:background="#9C000000">
         <ImageView
             android:layout_width="40dp"
             android:layout_height="wrap_content"
@@ -53,15 +53,19 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_medium"
             android:text="Customer Name"
+            android:drawablePadding="5dp"
             android:textAllCaps="true"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            app:drawableLeftCompat="@drawable/ic_user_4_line" />
         <TextView
             android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksand_medium"
+            android:fontFamily="@font/quicksand"
             android:text="Phone"
             android:textAllCaps="true"
+            app:drawableLeftCompat="@drawable/ic_smartphone_line"
+            android:drawablePadding="5dp"
             android:layout_marginBottom="5dp"/>
 
         <TextView
@@ -70,6 +74,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand"
             android:text="address"
+            app:drawableLeftCompat="@drawable/ic_home_4_line"
+            android:drawablePadding="5dp"
             android:layout_marginBottom="5dp"/>
 
         <View
@@ -78,6 +84,62 @@
             android:layout_height="3dp"
             android:layout_below="@id/ddddddddd"
             android:background="@drawable/drop_shadow" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/statusLayout"
+        android:text="Select your delivery status"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/quicksand"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:id="@+id/statusLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/pickedUpButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:paddingHorizontal="10dp"
+            android:layout_margin="10dp"
+            android:text="Picked Up"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+           />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/deliveredButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:paddingHorizontal="10dp"
+            android:layout_margin="10dp"
+            android:text="Delivered"
+            android:enabled="false"
+            android:textAllCaps="false"
+            android:layout_weight="1"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/returnButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:paddingHorizontal="10dp"
+            android:layout_margin="10dp"
+            android:text="Returned"
+            android:enabled="false"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            />
+
     </LinearLayout>
 
 

@@ -3,8 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/ic_black_krank_01.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/ic_home_4_line.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/ic_pending.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/ic_smartphone_line.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/ic_today_order.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/ic_undraw_order_delivered_p6ba.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/ic_user_4_line.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/shape_status_completed.xml" value="0.38645833333333335" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_add_loan.xml" value="0.18009118541033434" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_add_order.xml" value="0.33" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_initial_data.xml" value="0.18009118541033434" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_login.xml" value="0.18009118541033434" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_oder_details.xml" value="0.25" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/loan_row.xml" value="0.18009118541033434" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/product_row_in_order.xml" value="0.33" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/sub_item_row.xml" value="0.18009118541033434" />

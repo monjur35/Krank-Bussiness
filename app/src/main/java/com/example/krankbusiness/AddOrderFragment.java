@@ -51,6 +51,7 @@ public class AddOrderFragment extends Fragment {
     private List<Items> itemsList;
     private List<String> productIdList;
     private int totalPrice = 0;
+    private int discount = 0;
     private Items items1;
     private Items items2;
     private Items items3;
@@ -70,7 +71,7 @@ public class AddOrderFragment extends Fragment {
 
 
     private BottomNavigationView bottomNavigationView;
-    private String uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+    private String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
     public AddOrderFragment() {
@@ -84,8 +85,6 @@ public class AddOrderFragment extends Fragment {
         krankViewModel = new ViewModelProvider(getActivity()).get(KrankViewModel.class);
         bottomNavigationView = getActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
-
-
 
 
         productsName = new ArrayList<>();
@@ -111,7 +110,7 @@ public class AddOrderFragment extends Fragment {
         String formattedDate = df.format(c);
         @SuppressLint("SimpleDateFormat")
         String monthName = new SimpleDateFormat("MMMM").format(c);
-        Log.e("TAG", "onViewCreated:  Month"+monthName );
+        Log.e("TAG", "onViewCreated:  Month" + monthName);
 
 
         binding.spinKit.setVisibility(View.VISIBLE);
@@ -146,11 +145,11 @@ public class AddOrderFragment extends Fragment {
                         totalPrice = productsPrice.get(position);
                         binding.totalPrice.setText(String.valueOf(totalPrice));
 
-                        final String mSize = "M :" + products.get(position).getSizeLisT().getmSize();
-                        final String lSize = "L :" + products.get(position).getSizeLisT().getlSize();
-                        final String xlSize = "XL :" + products.get(position).getSizeLisT().getXlSize();
-                        final String xxlSize = "2xL :" + products.get(position).getSizeLisT().getXxlSize();
-                        final String xxxlSize = "3XL :" + products.get(position).getSizeLisT().getXxlSize();
+                        final String mSize = "M : " + products.get(position).getSizeLisT().getmSize();
+                        final String lSize = "L : " + products.get(position).getSizeLisT().getlSize();
+                        final String xlSize = "XL : " + products.get(position).getSizeLisT().getXlSize();
+                        final String xxlSize = "2xL : " + products.get(position).getSizeLisT().getXxlSize();
+                        final String xxxlSize = "3XL : " + products.get(position).getSizeLisT().getXxlSize();
 
                         Log.e("TAG", "onItemSelected: " + mSize + lSize + xlSize);
 
@@ -182,11 +181,11 @@ public class AddOrderFragment extends Fragment {
                         totalPrice = totalPrice + productsPrice.get(position);
                         binding.totalPrice.setText(String.valueOf(totalPrice));
 
-                        final String mSize = "M :" + products.get(position).getSizeLisT().getmSize();
-                        final String lSize = "L :" + products.get(position).getSizeLisT().getlSize();
-                        final String xlSize = "XL :" + products.get(position).getSizeLisT().getXlSize();
-                        final String xxlSize = "2xL :" + products.get(position).getSizeLisT().getXxlSize();
-                        final String xxxlSize = "3XL :" + products.get(position).getSizeLisT().getXxlSize();
+                        final String mSize = "M : " + products.get(position).getSizeLisT().getmSize();
+                        final String lSize = "L : " + products.get(position).getSizeLisT().getlSize();
+                        final String xlSize = "XL : " + products.get(position).getSizeLisT().getXlSize();
+                        final String xxlSize = "2xL : " + products.get(position).getSizeLisT().getXxlSize();
+                        final String xxxlSize = "3XL : " + products.get(position).getSizeLisT().getXxlSize();
 
                         Log.e("TAG", "onItemSelected: " + mSize + lSize + xlSize);
 
@@ -218,11 +217,11 @@ public class AddOrderFragment extends Fragment {
                         totalPrice = totalPrice + productsPrice.get(position);
                         binding.totalPrice.setText(String.valueOf(totalPrice));
 
-                        final String mSize = "M :" + products.get(position).getSizeLisT().getmSize();
-                        final String lSize = "L :" + products.get(position).getSizeLisT().getlSize();
-                        final String xlSize = "XL :" + products.get(position).getSizeLisT().getXlSize();
-                        final String xxlSize = "2xL :" + products.get(position).getSizeLisT().getXxlSize();
-                        final String xxxlSize = "3XL :" + products.get(position).getSizeLisT().getXxlSize();
+                        final String mSize = "M : " + products.get(position).getSizeLisT().getmSize();
+                        final String lSize = "L : " + products.get(position).getSizeLisT().getlSize();
+                        final String xlSize = "XL : " + products.get(position).getSizeLisT().getXlSize();
+                        final String xxlSize = "2xL : " + products.get(position).getSizeLisT().getXxlSize();
+                        final String xxxlSize = "3XL : " + products.get(position).getSizeLisT().getXxlSize();
 
                         Log.e("TAG", "onItemSelected: " + mSize + lSize + xlSize);
 
@@ -254,11 +253,11 @@ public class AddOrderFragment extends Fragment {
                         totalPrice = totalPrice + productsPrice.get(position);
                         binding.totalPrice.setText(String.valueOf(totalPrice));
 
-                        final String mSize = "M :" + products.get(position).getSizeLisT().getmSize();
-                        final String lSize = "L :" + products.get(position).getSizeLisT().getlSize();
-                        final String xlSize = "XL :" + products.get(position).getSizeLisT().getXlSize();
-                        final String xxlSize = "2xL :" + products.get(position).getSizeLisT().getXxlSize();
-                        final String xxxlSize = "3XL :" + products.get(position).getSizeLisT().getXxlSize();
+                        final String mSize = "M : " + products.get(position).getSizeLisT().getmSize();
+                        final String lSize = "L : " + products.get(position).getSizeLisT().getlSize();
+                        final String xlSize = "XL : " + products.get(position).getSizeLisT().getXlSize();
+                        final String xxlSize = "2xL : " + products.get(position).getSizeLisT().getXxlSize();
+                        final String xxxlSize = "3XL : " + products.get(position).getSizeLisT().getXxlSize();
 
                         Log.e("TAG", "onItemSelected: " + mSize + lSize + xlSize);
 
@@ -284,21 +283,25 @@ public class AddOrderFragment extends Fragment {
         });
 
 
-
-
         binding.addOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String customerName = binding.customerName.getText().toString();
                 final String customerPhone = binding.phone.getText().toString();
                 final String customerAddress = binding.address.getText().toString();
+                final String discountString = binding.discount.getText().toString();
+
+                if (!discountString.isEmpty()){
+                    discount=Integer.parseInt(discountString);
+                    totalPrice=totalPrice-discount;
+                }
 
 
                 if (customerName.isEmpty() || customerPhone.isEmpty() || customerAddress.isEmpty() || itemsList.size() == 0) {
                     Toast.makeText(getContext(), "plz ,Verify all field", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    OrderModel orderModel = new OrderModel(null, uid, customerName, customerPhone, customerAddress, itemsList, String.valueOf(totalPrice), formattedDate,monthName);
+                    OrderModel orderModel = new OrderModel(null, uid, customerName, customerPhone, customerAddress, itemsList, String.valueOf(totalPrice),String.valueOf(discount), formattedDate, monthName, "pending");
                     krankViewModel.addOrder(orderModel);
 
 

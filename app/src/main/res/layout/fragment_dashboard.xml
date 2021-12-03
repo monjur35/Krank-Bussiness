@@ -23,15 +23,14 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/dashBoardLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/new_rocker"
-                    android:text="Dashboard"
-                    android:textColor="#E1FB4646"
-                    android:textSize="25sp" />
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_black_krank_01"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"/>
+
+
 
 
             </LinearLayout>
@@ -485,12 +484,11 @@
         android:layout_marginRight="20dp"
         app:chart_axis="xy"
         app:chart_barsColor="@color/colorPrimaryDark"
-        app:chart_barsRadius="20dp"
+        app:chart_barsRadius="5dp"
         app:chart_labelsColor="#FF70977F"
         app:chart_labelsFont="@font/quicksand"
         app:chart_labelsSize="10sp"
-        app:chart_spacing="100dp"
-        />
+        app:chart_spacing="100dp" />
 
 
 

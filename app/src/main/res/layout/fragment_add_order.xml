@@ -6,305 +6,338 @@
     android:background="@drawable/ic_dorttt_01"
     tools:context=".AddOrderFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:layout_marginHorizontal="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Order"
-            android:textSize="20sp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/quicksand_medium"
-            android:textColor="@color/red"/>
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:orientation="horizontal">
-
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginHorizontal="10dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total :"
-                android:textSize="18sp"
+                android:text="Add Order"
+                android:textSize="20sp"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/quicksand_medium"
+                android:textColor="@color/red"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total :"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:textColor="@color/red"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 00"
+                    android:id="@+id/totalPrice"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:textColor="@color/red"/>
+
+            </LinearLayout>
+
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/quicksand"
+
+                android:layout_marginHorizontal="5dp"
+                android:text="Customer Name" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/customerName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:layout_marginBottom="10dp"
-                android:fontFamily="@font/quicksand_medium"
-                android:textColor="@color/red"/>
-            <TextView
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/edit_text_style"
+                android:elevation="5dp"
+                android:inputType="text"
+                android:fontFamily="@font/quicksand"
+                android:hint="Customer Name"
+                android:padding="5dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/quicksand"
+                android:layout_marginHorizontal="5dp"
+                android:text="Phone" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edit_text_style"
+                android:fontFamily="@font/quicksand"
+                android:hint="Phone"
+                android:inputType="phone"
+                android:layout_marginHorizontal="5dp"
+                android:elevation="5dp"
+                android:padding="5dp" />
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/quicksand"
+                android:layout_marginHorizontal="5dp"
+                android:text="Address" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/edit_text_style"
+                android:elevation="5dp"
+                android:inputType="text"
+                android:fontFamily="@font/quicksand"
+                android:hint="Address"
+                android:padding="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ddddd"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Item 1">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/selectedProductItem1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:fontFamily="@font/quicksand"
+                        android:inputType="none"
+                        android:padding="10dp"
+                        android:text="Select" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Size">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/selectedSizeItem1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:fontFamily="@font/quicksand"
+                        android:inputType="none"
+                        android:padding="10dp"
+                        android:text="Select" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Item 2">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/selectedProductItem2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:fontFamily="@font/quicksand"
+                        android:inputType="none"
+                        android:padding="10dp"
+                        android:enabled="false"
+                        android:text="Select" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Size">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/selectedSizeItem2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:fontFamily="@font/quicksand"
+                        android:inputType="none"
+                        android:enabled="false"
+                        android:padding="10dp"
+                        android:text="Select" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Item 3">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/selectedProductItem3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:fontFamily="@font/quicksand"
+                        android:inputType="none"
+                        android:enabled="false"
+                        android:padding="10dp"
+                        android:text="Select" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Size">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/selectedSizeItem3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:fontFamily="@font/quicksand"
+                        android:inputType="none"
+                        android:enabled="false"
+                        android:padding="10dp"
+                        android:text="Select" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Item 4">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/selectedProductItem4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:fontFamily="@font/quicksand"
+                        android:inputType="none"
+                        android:enabled="false"
+                        android:padding="10dp"
+                        android:text="Select" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Size">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/selectedSizeItem4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:fontFamily="@font/quicksand"
+                        android:inputType="none"
+                        android:enabled="false"
+                        android:padding="10dp"
+                        android:text="Select" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/quicksand"
+                android:layout_marginHorizontal="5dp"
+                android:text="Discount" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/discount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/edit_text_style"
+                android:elevation="5dp"
+                android:inputType="numberDecimal"
+                android:fontFamily="@font/quicksand"
+                android:hint="Discount"
+                android:padding="5dp" />
+
+
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" 00"
-                android:id="@+id/totalPrice"
-                android:textSize="18sp"
-                android:layout_marginTop="20dp"
+                android:layout_margin="20dp"
+                android:text="Add Order"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/quicksand_medium"
-                android:textColor="@color/red"/>
+                android:textSize="18sp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/addOrderBtn"/>
+
+
 
         </LinearLayout>
+    </ScrollView>
 
 
 
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:fontFamily="@font/quicksand"
-
-            android:layout_marginHorizontal="5dp"
-            android:text="Customer Name" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/customerName"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginHorizontal="5dp"
-            android:background="@drawable/edit_text_style"
-            android:elevation="5dp"
-            android:inputType="text"
-            android:fontFamily="@font/quicksand"
-            android:hint="Customer Name"
-            android:padding="5dp" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:fontFamily="@font/quicksand"
-            android:layout_marginHorizontal="5dp"
-            android:text="Phone" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phone"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/edit_text_style"
-            android:fontFamily="@font/quicksand"
-            android:hint="Phone"
-            android:inputType="phone"
-            android:layout_marginHorizontal="5dp"
-            android:elevation="5dp"
-            android:padding="5dp" />
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:fontFamily="@font/quicksand"
-            android:layout_marginHorizontal="5dp"
-            android:text="Address" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="40dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginHorizontal="5dp"
-            android:background="@drawable/edit_text_style"
-            android:elevation="5dp"
-            android:inputType="text"
-            android:fontFamily="@font/quicksand"
-            android:hint="Address"
-            android:padding="5dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ddddd"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="200dp"
-                android:layout_height="45dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="5dp"
-                android:hint="Item 1">
-
-                <AutoCompleteTextView
-                    android:id="@+id/selectedProductItem1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:editable="false"
-                    android:fontFamily="@font/quicksand"
-                    android:inputType="none"
-                    android:padding="10dp"
-                    android:text="Select" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="5dp"
-                android:hint="Size">
-
-                <AutoCompleteTextView
-                    android:id="@+id/selectedSizeItem1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:editable="false"
-                    android:fontFamily="@font/quicksand"
-                    android:inputType="none"
-                    android:padding="10dp"
-                    android:text="Select" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="200dp"
-                android:layout_height="45dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="5dp"
-                android:hint="Item 2">
-
-                <AutoCompleteTextView
-                    android:id="@+id/selectedProductItem2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:editable="false"
-                    android:fontFamily="@font/quicksand"
-                    android:inputType="none"
-                    android:padding="10dp"
-                    android:enabled="false"
-                    android:text="Select" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="5dp"
-                android:hint="Size">
-
-                <AutoCompleteTextView
-                    android:id="@+id/selectedSizeItem2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:editable="false"
-                    android:fontFamily="@font/quicksand"
-                    android:inputType="none"
-                    android:enabled="false"
-                    android:padding="10dp"
-                    android:text="Select" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="200dp"
-                android:layout_height="45dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="5dp"
-                android:hint="Item 3">
-
-                <AutoCompleteTextView
-                    android:id="@+id/selectedProductItem3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:editable="false"
-                    android:fontFamily="@font/quicksand"
-                    android:inputType="none"
-                    android:enabled="false"
-                    android:padding="10dp"
-                    android:text="Select" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="5dp"
-                android:hint="Size">
-
-                <AutoCompleteTextView
-                    android:id="@+id/selectedSizeItem3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:editable="false"
-                    android:fontFamily="@font/quicksand"
-                    android:inputType="none"
-                    android:enabled="false"
-                    android:padding="10dp"
-                    android:text="Select" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="200dp"
-                android:layout_height="45dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="5dp"
-                android:hint="Item 4">
-
-                <AutoCompleteTextView
-                    android:id="@+id/selectedProductItem4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:editable="false"
-                    android:fontFamily="@font/quicksand"
-                    android:inputType="none"
-                    android:enabled="false"
-                    android:padding="10dp"
-                    android:text="Select" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="5dp"
-                android:hint="Size">
-
-                <AutoCompleteTextView
-                    android:id="@+id/selectedSizeItem4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:editable="false"
-                    android:fontFamily="@font/quicksand"
-                    android:inputType="none"
-                    android:enabled="false"
-                    android:padding="10dp"
-                    android:text="Select" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-
-
-    </LinearLayout>
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="Add Order"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/quicksand_medium"
-        android:textSize="18sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/addOrderBtn"/>
 
     <ImageView
         android:layout_width="match_parent"
@@ -319,10 +352,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:layout_centerInParent="true"
         android:visibility="invisible"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100dp"
-        android:layout_above="@id/addOrderBtn"
         app:SpinKit_Color="#DC00796B" />
+
+
+
 
 </RelativeLayout>
