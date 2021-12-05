@@ -71,6 +71,12 @@ public class KrankViewModel extends AndroidViewModel {
     public MutableLiveData<List<OrderModel>>getOrderListByDate(String  uid,String date){
         return firebaseRepository.getAllOrderListByDate(uid, date);
     }
+    public MutableLiveData<List<OrderModel>>getOrderListByMonth(String  uid,String month){
+        return firebaseRepository.getAllOrderListByMonth(uid, month);
+    }
+    public MutableLiveData<List<OrderModel>>getOrderListByStatus(String  uid,String status){
+        return firebaseRepository.getAllOrderListByStatus(uid, status);
+    }
     public MutableLiveData<List<OrderModel>>getOrderList(String  uid){
         return firebaseRepository.getAllOrderList(uid);
     }

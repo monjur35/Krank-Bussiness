@@ -1,5 +1,6 @@
 package com.example.krankbusiness.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,11 @@ import com.example.krankbusiness.models.LoanModel;
 import com.example.krankbusiness.models.OrderModel;
 import com.example.krankbusiness.models.UserData;
 import com.example.krankbusiness.viewModels.KrankViewModel;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -86,81 +92,28 @@ public class DashboardFragment extends Fragment {
         SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
         String month_name = month_date.format(cal.getTime());
 
-       getthismonthExpense(month_name);
-       getthismonthSell(month_name);
+
        getTotalCash();
 
 
        binding.thisMonthExp.setText(month_name);
        binding.thisSell.setText(month_name);
 
+       new Thread(() -> new Handler(Looper.getMainLooper()).post(this::getTotalLoan)).start();
+
        new Thread(() -> new Handler(Looper.getMainLooper()).post(() -> {
-           getTotalLoan();
+           getthismonthSell(month_name);
        })).start();
+        new Thread(() -> new Handler(Looper.getMainLooper()).post(() -> {
+            getthismonthExpense(month_name);
+        })).start();
 
-       krankViewModel.getUserData(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<UserData>>() {
-           @Override
-           public void onChanged(List<UserData> userData) {
-               if (userData.size()!=0){
-                   UserData user=userData.get(0);
-                   binding.capital.setText(user.getTotalCapital());
-                   binding.profit.setText(user.getTotalProfit());
-                   binding.totalExpense.setText(user.getTotalExpense());
-                 //  binding.dashBoardLabel.setText(user.getCompanyName());
-                   binding.totalCash.setText(user.getTotalCash());
-                   binding.totalLoan.setText(user.getTotalLoan());
-                   binding.spinKit.setVisibility(View.INVISIBLE);
-               }
-           }
-       });
-
-
-
-
-        List<Pair<Float,String>> pairList = new ArrayList<>();
-
-        pairList.add(new Pair<>(1f,"fsdfd"));
-        pairList.add(new Pair<>(2f,"fsdfd"));
-        pairList.add(new Pair<>(3f,"fsdfd"));
-        pairList.add(new Pair<>(4f,"fsdfd"));
-        pairList.add(new Pair<>(3f,"fsdfd"));
-
-
-
-        //binding.barChart.show((LinkedHashMap<String, Float>) pairList);
-       // binding.barChart.animate((LinkedHashMap<String, Float>) pairList);
-
-
-       /* krankViewModel.getUserData().observe(getViewLifecycleOwner(), new Observer<UserData>() {
-            @Override
-            public void onChanged(UserData userData) {
-                if (userData!=null){
-
-
-
-                }
-                else {
-                    String error= krankViewModel.getErrorMsg().toString();
-
-                    Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
-
-                    binding.spinKit.setVisibility(View.INVISIBLE);
-                }
-
-
-
-                if (krankViewModel.getErrorMsg()!=null){
-                    String error= krankViewModel.getErrorMsg().toString();
-                    Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
-                    binding.spinKit.setVisibility(View.INVISIBLE);
-                }
-
-            }
-        });*/
 
 
 
     }
+
+
 
     private void getTotalLoan() {
         krankViewModel.getLoanList(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<LoanModel>>() {
@@ -185,7 +138,7 @@ public class DashboardFragment extends Fragment {
 
     private void getthismonthSell(String month_name) {
 
-        new Thread(() -> new Handler(Looper.getMainLooper()).post(() -> {
+
             krankViewModel.getTotalSell(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<OrderModel>>() {
                 @Override
                 public void onChanged(List<OrderModel> orderModels) {
@@ -211,7 +164,7 @@ public class DashboardFragment extends Fragment {
 
                 }
             });
-        })).start();
+
 
     }
 
@@ -220,17 +173,21 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onChanged(List<ExpenseModel> expenseModels) {
                 Log.e("TAG", "onChanged: "+firebaseUser.getUid() );
-                for (int i=0;i<expenseModels.size();i++){
-                    Log.e("TAG", "Expense : "+expenseModels.size() );
-                    totalExpense=totalExpense+Integer.parseInt(expenseModels.get(i).getAmount());
-                    binding.totalExpense.setText(String.valueOf(totalExpense));
-                    if (expenseModels.get(i).getMonthName().equals(month_name)){
-                        monthlyExpense = monthlyExpense +Integer.parseInt(expenseModels.get(i).getAmount());
-                        binding.thisMonthExpense.setText(String.valueOf(monthlyExpense));
+                if (expenseModels!=null & !expenseModels.isEmpty()){
+
+                    for (int i=0;i<expenseModels.size();i++){
+                        Log.e("TAG", "Expense : "+expenseModels.size() );
+                        totalExpense=totalExpense+Integer.parseInt(expenseModels.get(i).getAmount());
+                        binding.totalExpense.setText(String.valueOf(totalExpense));
+                        if (expenseModels.get(i).getMonthName().equals(month_name)){
+                            monthlyExpense = monthlyExpense +Integer.parseInt(expenseModels.get(i).getAmount());
+                            binding.thisMonthExpense.setText(String.valueOf(monthlyExpense));
+                        }
                     }
+
+                    getTotalCash();
                 }
 
-                getTotalCash();
             }
         });
     }

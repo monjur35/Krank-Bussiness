@@ -211,6 +211,42 @@ public class FirebaseRepository {
 
     }
 
+    public MutableLiveData<List<OrderModel>>getAllOrderListByMonth(String  uid,String month){
+        MutableLiveData<List<OrderModel>>listMutableLiveData=new MutableLiveData<>();
+        firebaseFirestore.collection(ORDER_COLLECTION).whereEqualTo("userId",uid).whereEqualTo("monthName",month).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                if (error==null){
+                    assert value != null;
+                    listMutableLiveData.postValue(value.toObjects(OrderModel.class));
+                }
+            }
+        });
+
+
+        return listMutableLiveData;
+
+    }
+
+    public MutableLiveData<List<OrderModel>>getAllOrderListByStatus(String  uid,String status){
+        MutableLiveData<List<OrderModel>>listMutableLiveData=new MutableLiveData<>();
+        firebaseFirestore.collection(ORDER_COLLECTION).whereEqualTo("userId",uid).whereEqualTo("deliveryStatus",status).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
+                if (error==null){
+                    assert value != null;
+                    listMutableLiveData.postValue(value.toObjects(OrderModel.class));
+                }
+            }
+        });
+
+
+        return listMutableLiveData;
+
+    }
+
+
+
 
 
 

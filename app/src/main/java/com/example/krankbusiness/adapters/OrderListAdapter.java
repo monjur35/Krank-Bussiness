@@ -1,10 +1,13 @@
 package com.example.krankbusiness.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,6 +44,19 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     @Override
     public void onBindViewHolder(@NonNull @NotNull OrderListAdapter.OrderViewHolder holder, int position) {
 
+        if (orderModelList.get(position).getDeliveryStatus().equals("Delivered")){
+            holder.linearLayout.setBackgroundResource(R.drawable.green_bg);
+
+        }
+        else  if (orderModelList.get(position).getDeliveryStatus().equals("Returned")){
+            holder.linearLayout.setBackgroundResource(R.drawable.red_bg);
+
+        }
+        else {
+
+        }
+
+
         holder.customerName.setText(orderModelList.get(position).getCustomerName());
 
         holder.address.setText(orderModelList.get(position).getCustomerAddress());
@@ -75,6 +91,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
     class OrderViewHolder extends RecyclerView.ViewHolder{
         TextView customerName,address,phone,totalPrice;
         RecyclerView suvRv;
+        LinearLayout linearLayout;
 
         public OrderViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -83,6 +100,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             phone=itemView.findViewById(R.id.phoneInRow);
             totalPrice=itemView.findViewById(R.id.totalPriceinRow);
             suvRv=itemView.findViewById(R.id.subItemListRv);
+            linearLayout=itemView.findViewById(R.id.cardView1);
         }
     }
 }
