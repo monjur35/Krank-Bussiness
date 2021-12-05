@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 
 import com.example.krankbusiness.databinding.FragmentDashboardBinding;
 import com.example.krankbusiness.models.ExpenseModel;
+import com.example.krankbusiness.models.LoanModel;
 import com.example.krankbusiness.models.OrderModel;
 import com.example.krankbusiness.models.UserData;
 import com.example.krankbusiness.viewModels.KrankViewModel;
@@ -45,6 +46,7 @@ public class DashboardFragment extends Fragment {
     private int monthlySell=0;
     private int totalSell=0;
     private int totalCash=0;
+    private int totalLoan=0;
 
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
@@ -88,8 +90,13 @@ public class DashboardFragment extends Fragment {
        getthismonthSell(month_name);
        getTotalCash();
 
+
        binding.thisMonthExp.setText(month_name);
        binding.thisSell.setText(month_name);
+
+       new Thread(() -> new Handler(Looper.getMainLooper()).post(() -> {
+           getTotalLoan();
+       })).start();
 
        krankViewModel.getUserData(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<UserData>>() {
            @Override
@@ -153,6 +160,21 @@ public class DashboardFragment extends Fragment {
 
 
 
+    }
+
+    private void getTotalLoan() {
+        krankViewModel.getLoanList(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<LoanModel>>() {
+            @Override
+            public void onChanged(List<LoanModel> loanModels) {
+                if (loanModels!=null && !loanModels.isEmpty()){
+                    for (int i=0;i<loanModels.size();i++){
+                        totalLoan=totalLoan+Integer.parseInt(loanModels.get(i).getDueAmount());
+                    }
+
+                    binding.totalLoan.setText(String.valueOf(totalLoan));
+                }
+            }
+        });
     }
 
     private void getTotalCash() {
