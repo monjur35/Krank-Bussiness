@@ -65,7 +65,6 @@ public class LoginFragment extends Fragment {
                     final String email= binding.loginEmail.getText().toString().trim();
                     final String password=binding.loginpass.getText().toString().trim();
 
-                    Log.e("TAG", "onClick: email :"+email +"  paass :"+password );
 
                     if (email.isEmpty()||password.isEmpty()) {
 

@@ -172,11 +172,11 @@ public class DashboardFragment extends Fragment {
         krankViewModel.getExpenseList(firebaseUser.getUid()).observe(getViewLifecycleOwner(), new Observer<List<ExpenseModel>>() {
             @Override
             public void onChanged(List<ExpenseModel> expenseModels) {
-                Log.e("TAG", "onChanged: "+firebaseUser.getUid() );
+
                 if (expenseModels!=null & !expenseModels.isEmpty()){
 
                     for (int i=0;i<expenseModels.size();i++){
-                        Log.e("TAG", "Expense : "+expenseModels.size() );
+
                         totalExpense=totalExpense+Integer.parseInt(expenseModels.get(i).getAmount());
                         binding.totalExpense.setText(String.valueOf(totalExpense));
                         if (expenseModels.get(i).getMonthName().equals(month_name)){
