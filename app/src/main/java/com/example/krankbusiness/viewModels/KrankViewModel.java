@@ -32,8 +32,8 @@ public class KrankViewModel extends AndroidViewModel {
     public MutableLiveData<String> setUserDAta(UserData userData){
         return firebaseRepository.addUserData(userData);
     }
-    public MutableLiveData<List<UserData>>getUserData(String uid){
-        return firebaseRepository.getUserData(uid);
+    public MutableLiveData<List<UserData>>getUserData(){
+        return firebaseRepository.getUserData();
     }
     public MutableLiveData<String>getErrorMsg(){
         return firebaseRepository.errorMsg;

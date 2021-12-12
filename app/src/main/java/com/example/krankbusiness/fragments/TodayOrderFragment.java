@@ -47,7 +47,7 @@ public class TodayOrderFragment extends Fragment {
 
     private OrderListAdapter adapter;
     private List<OrderModel>orderModelList;
-    private final List<String> stringList = Arrays.asList("All","Today", "Monthly","Pending");
+    private final List<String> stringList = Arrays.asList("Pending","All","Today", "Monthly");
 
     private String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -93,7 +93,7 @@ public class TodayOrderFragment extends Fragment {
 
 
         new Thread(() -> new Handler(Looper.getMainLooper()).post(() -> {
-            getOrderList();
+            getOrderListByDeliveryStatus("pending");
         })).start();
 
 
@@ -143,18 +143,21 @@ public class TodayOrderFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                     if (position==0){
-                        getOrderList();
+                        getOrderListByDeliveryStatus("pending");
+
 
                     }
                     else if (position==1){
-                        getOrderListByDate(formattedDate);
+                        getOrderList();
+
 
                     }
                     else if (position==2){
-                        getOrderListByMonth(monthName);
+                        getOrderListByDate(formattedDate);
+
                     }
                     else {
-                        getOrderListByDeliveryStatus("pending");
+                        getOrderListByMonth(monthName);
                     }
             }
         });
@@ -215,4 +218,5 @@ public class TodayOrderFragment extends Fragment {
         });
 
     }
+
 }

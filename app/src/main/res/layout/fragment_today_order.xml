@@ -58,7 +58,7 @@
                         android:fontFamily="@font/quicksand"
                         android:inputType="none"
                         android:padding="10dp"
-                        android:text="All" />
+                        android:text="Pending" />
                 </com.google.android.material.textfield.TextInputLayout>
             </RelativeLayout></com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>

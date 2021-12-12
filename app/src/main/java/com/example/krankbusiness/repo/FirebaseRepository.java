@@ -29,6 +29,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.auth.User;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -74,17 +75,15 @@ public class FirebaseRepository {
         return mutableLiveData;
     }
 
-    public MutableLiveData<List<UserData>>getUserData(String uid){
+    public MutableLiveData<List<UserData>>getUserData(){
         MutableLiveData<List<UserData>>userDataMutableLiveData=new MutableLiveData<>();
-        firebaseFirestore.collection(INITIAL_DATA_COLLECTION).whereEqualTo("uId",uid).addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable @org.jetbrains.annotations.Nullable QuerySnapshot value, @Nullable @org.jetbrains.annotations.Nullable FirebaseFirestoreException error) {
-                assert value != null;
-                if (!value.isEmpty()){
-                    userDataMutableLiveData.postValue(value.toObjects(UserData.class));
-                }
-            }
-        });
+        Log.e("TAG", "getUserData: "+currentUser );
+       firebaseFirestore.collection(INITIAL_DATA_COLLECTION).whereEqualTo("uId","rjdleSuf31dnbte52oBhRlUihm03").addSnapshotListener(new EventListener<QuerySnapshot>() {
+           @Override
+           public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+               userDataMutableLiveData.postValue(value.toObjects(UserData.class));
+           }
+       });
         return userDataMutableLiveData;
     }
 

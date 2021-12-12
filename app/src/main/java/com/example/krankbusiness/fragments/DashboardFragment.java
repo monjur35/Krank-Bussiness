@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -47,12 +48,14 @@ public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
     private KrankViewModel krankViewModel;
-    private int totalExpense=0;
-    private int monthlyExpense=0;
-    private int monthlySell=0;
-    private int totalSell=0;
-    private int totalCash=0;
-    private int totalLoan=0;
+    private double totalExpense=0;
+    private double monthlyExpense=0;
+    private double monthlySell=0;
+    private double totalSell=0;
+    private double totalCash=0;
+    private double totalLoan=0;
+    private double totalCapital=0.0;
+    private MutableLiveData<Double> capital=new MutableLiveData<>();
 
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
@@ -86,6 +89,7 @@ public class DashboardFragment extends Fragment {
 
        // binding.spinKit.setVisibility(View.VISIBLE);
 
+        //Log.e("TAG", "userID: "+firebaseUser.getUid() );
 
 
         Calendar cal=Calendar.getInstance();
@@ -93,11 +97,12 @@ public class DashboardFragment extends Fragment {
         String month_name = month_date.format(cal.getTime());
 
 
-       getTotalCash();
+
 
 
        binding.thisMonthExp.setText(month_name);
        binding.thisSell.setText(month_name);
+
 
        new Thread(() -> new Handler(Looper.getMainLooper()).post(this::getTotalLoan)).start();
 
@@ -106,13 +111,39 @@ public class DashboardFragment extends Fragment {
        })).start();
         new Thread(() -> new Handler(Looper.getMainLooper()).post(() -> {
             getthismonthExpense(month_name);
+            //getTotalCash();
         })).start();
+
+        new Thread(() -> new Handler(Looper.getMainLooper()).post(this::getUserInitialData)).start();
+
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getTotalCash();
+                binding.capital.setText(String.valueOf(totalCapital));
+            }
+        },1000);
+
 
 
 
 
     }
 
+    private void getUserInitialData() {
+        krankViewModel.getUserData().observe(getViewLifecycleOwner(), new Observer<List<UserData>>() {
+            @Override
+            public void onChanged(List<UserData> userData) {
+
+                if (userData!=null && !userData.isEmpty()){
+                    totalCapital=Double.parseDouble(userData.get(0).getTotalCapital());
+                    Log.e("TAG", "onChanged: "+totalCapital );
+
+                }
+            }
+        });
+    }
 
 
     private void getTotalLoan() {
@@ -131,8 +162,11 @@ public class DashboardFragment extends Fragment {
     }
 
     private void getTotalCash() {
-        totalCash=totalSell-totalExpense;
+        totalCash=(totalCapital+totalSell)-totalExpense;
         binding.totalCash.setText(String.valueOf(totalCash));
+
+
+
     }
 
 
@@ -152,7 +186,7 @@ public class DashboardFragment extends Fragment {
 
                                 if (orderModels.get(i).getMonthName()!=null){
                                     if (orderModels.get(i).getMonthName().equals(month_name)){
-                                        monthlySell=monthlySell+Integer.parseInt(orderModels.get(i).getTotalPrice());
+                                        monthlySell=monthlySell+Double.parseDouble(orderModels.get(i).getTotalPrice());
                                         binding.thisMonthSell.setText(String.valueOf(monthlySell));
                                     }
                                 }
@@ -176,18 +210,16 @@ public class DashboardFragment extends Fragment {
                 if (expenseModels!=null & !expenseModels.isEmpty()){
 
                     for (int i=0;i<expenseModels.size();i++){
-
                         totalExpense=totalExpense+Integer.parseInt(expenseModels.get(i).getAmount());
                         binding.totalExpense.setText(String.valueOf(totalExpense));
                         if (expenseModels.get(i).getMonthName().equals(month_name)){
-                            monthlyExpense = monthlyExpense +Integer.parseInt(expenseModels.get(i).getAmount());
+                            monthlyExpense = monthlyExpense +Double.parseDouble(expenseModels.get(i).getAmount());
                             binding.thisMonthExpense.setText(String.valueOf(monthlyExpense));
                         }
                     }
 
                     getTotalCash();
                 }
-
             }
         });
     }

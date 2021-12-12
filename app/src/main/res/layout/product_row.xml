@@ -25,22 +25,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="Product Name : "
-                android:layout_marginRight="5dp"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-
-            <TextView
                 android:id="@+id/productName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/quicksand"
+                android:fontFamily="@font/quicksand_medium"
                 android:text="Iron maiden :"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textColor="@color/lightGreen"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
