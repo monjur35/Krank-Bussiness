@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/background_color"
     tools:context=".OderDetailsFragment">
 
     <LinearLayout
@@ -54,6 +55,7 @@
             android:fontFamily="@font/quicksand_medium"
             android:text="Customer Name"
             android:drawablePadding="5dp"
+            android:textColor="?attr/text_color"
             android:textAllCaps="true"
             android:layout_marginBottom="5dp"
             app:drawableLeftCompat="@drawable/ic_user_4_line" />
@@ -63,6 +65,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand"
             android:text="Phone"
+            android:textColor="?attr/text_color"
             android:textAllCaps="true"
             app:drawableLeftCompat="@drawable/ic_smartphone_line"
             android:drawablePadding="5dp"
@@ -74,6 +77,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand"
             android:text="address"
+            android:textColor="?attr/text_color"
             app:drawableLeftCompat="@drawable/ic_home_4_line"
             android:drawablePadding="5dp"
             android:layout_marginBottom="5dp"/>
@@ -90,6 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/statusLayout"
+        android:textColor="?attr/text_color"
         android:text="Select your delivery status"
         android:layout_marginStart="10dp"
         android:fontFamily="@font/quicksand"/>

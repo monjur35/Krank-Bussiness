@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/ic_dorttt_01"
+    android:background="?attr/background_color"
     tools:context=".fragments.TodayOrderFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -15,7 +15,7 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
+            android:background="?attr/bottom_navigation_color"
             android:id="@+id/dash_toolbar">
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/quicksand_medium"
                     android:text="Orders -- "
-                    android:textSize="22sp" />
+                    android:textSize="20sp" />
                 <TextView
                     android:id="@+id/orderQuantity"
                     android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
                     android:text="00"
                     android:layout_toRightOf="@+id/dashBoardLabel"
                     android:layout_marginStart="10dp"
-                    android:textSize="22sp" />
+                    android:textSize="20sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -86,18 +86,23 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="40dp"
-        android:background="@drawable/edit_text_style"
         android:layout_below="@+id/dashAppbar"
-        android:hint="Search here..."
-        android:fontFamily="@font/quicksand"
-        android:layout_margin="10dp"
-        android:elevation="10dp"
-        android:padding="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edit_text_style"
         android:drawableLeft="@drawable/ic_baseline_search_24"
-        android:id="@+id/search"/>
+        android:elevation="10dp"
+        android:fontFamily="@font/quicksand"
+        android:hint="Search here..."
+        android:textColorHint="@color/black"
+        android:minHeight="40dp"
+        android:padding="5dp"
+        android:textColor="@color/black" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"

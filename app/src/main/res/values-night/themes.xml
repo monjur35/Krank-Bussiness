@@ -12,6 +12,16 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="background_color">#D2081122</item>
+        <item name="text_color">#9AFFFFFF</item>
+        <item name="title_text_color">#F2FFFFFF</item>
+        <item name="headLine_text_color">#00A8CC</item>
+        <item name="card_color">#27496D</item>
+        <item name="view_color">#7027496D</item>
+        <item name="bottom_navigation_color">#0F1313</item>
+
+
     </style>
 
     <style name="ProgressBarTheme" parent="ThemeOverlay.AppCompat.Light">

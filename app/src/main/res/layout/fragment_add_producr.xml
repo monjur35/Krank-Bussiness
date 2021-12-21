@@ -14,7 +14,7 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
+            android:background="?attr/bottom_navigation_color"
             android:id="@+id/dash_toolbar">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -23,8 +23,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="My Products"
+                    android:textColor="?attr/text_color"
                     android:fontFamily="@font/quicksand_medium"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:id="@+id/dashBoardLabel"
                     android:layout_gravity="center"/>
             </LinearLayout></com.google.android.material.appbar.MaterialToolbar>

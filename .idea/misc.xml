@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/bg.xml" value="0.23385416666666667" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/bottom_nav_icon_color_selector.xml" value="0.2671875" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/green_bg.xml" value="0.23385416666666667" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/ic_black_krank_01.xml" value="0.38645833333333335" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/ic_home_4_line.xml" value="0.38645833333333335" />
@@ -14,12 +15,22 @@
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/ic_user_4_line.xml" value="0.38645833333333335" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/red_bg.xml" value="0.23385416666666667" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/drawable/shape_status_completed.xml" value="0.38645833333333335" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/activity_authentication.xml" value="0.25104166666666666" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/activity_home.xml" value="0.1875" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/activity_main.xml" value="0.1875" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_add_expense.xml" value="0.1875" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_add_loan.xml" value="0.18009118541033434" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_add_order.xml" value="0.33" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_add_producr.xml" value="0.1875" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_expense.xml" value="0.1875" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_initial_data.xml" value="0.18009118541033434" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_input_product.xml" value="0.1875" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_loan.xml" value="0.25104166666666666" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_login.xml" value="0.18009118541033434" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_oder_details.xml" value="0.25" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_product_details.xml" value="0.1875" />
+        <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_registration.xml" value="0.1875" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/fragment_today_order.xml" value="0.19067028985507245" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/loan_row.xml" value="0.18009118541033434" />
         <entry key="..\:/Android projects/KrankBusiness/app/src/main/res/layout/order_row.xml" value="0.19067028985507245" />

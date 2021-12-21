@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_dorttt_01"
+    android:background="?attr/background_color"
     tools:context=".AddOrderFragment">
 
     <ScrollView
@@ -70,6 +70,7 @@
                 android:background="@drawable/edit_text_style"
                 android:elevation="5dp"
                 android:inputType="text"
+                android:textColor="?attr/text_color"
                 android:fontFamily="@font/quicksand"
                 android:hint="Customer Name"
                 android:padding="5dp" />
@@ -91,6 +92,7 @@
                 android:fontFamily="@font/quicksand"
                 android:hint="Phone"
                 android:inputType="phone"
+                android:textColor="?attr/text_color"
                 android:layout_marginHorizontal="5dp"
                 android:elevation="5dp"
                 android:padding="5dp" />
@@ -112,6 +114,7 @@
                 android:background="@drawable/edit_text_style"
                 android:elevation="5dp"
                 android:inputType="text"
+                android:textColor="?attr/text_color"
                 android:fontFamily="@font/quicksand"
                 android:hint="Address"
                 android:padding="5dp" />
@@ -311,6 +314,7 @@
                 android:layout_marginHorizontal="5dp"
                 android:background="@drawable/edit_text_style"
                 android:elevation="5dp"
+                android:textColor="?attr/text_color"
                 android:inputType="numberDecimal"
                 android:fontFamily="@font/quicksand"
                 android:hint="Discount"
@@ -337,13 +341,11 @@
     </ScrollView>
 
 
-
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_dorttt_01"
-        android:rotation="90"/>
+        android:rotation="90"
+        android:src="@drawable/ic_dorttt_01" />
 
     <com.github.ybq.android.spinkit.SpinKitView
         xmlns:app="http://schemas.android.com/apk/res-auto"

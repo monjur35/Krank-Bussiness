@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="dark_theme">
+        <attr name="background_color" format="color"/>
+        <attr name="title_text_color" format="color"/>
+        <attr name="text_color" format="color"/>
+        <attr name="card_color" format="color"/>
+        <attr name="view_color" format="color"/>
+        <attr name="bottom_navigation_color" format="color"/>
+        <attr name="headLine_text_color" format="color"/>
+    </declare-styleable>
+</resources>

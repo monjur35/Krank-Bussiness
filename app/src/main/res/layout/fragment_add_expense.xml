@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_dorttt_01"
+    android:background="?attr/background_color"
     tools:context=".fragments.AddExpenseFragment">
 
     <LinearLayout
@@ -40,6 +40,7 @@
             android:background="@drawable/edit_text_style"
             android:elevation="5dp"
             android:inputType="text"
+            android:textColor="?attr/text_color"
             android:fontFamily="@font/quicksand"
             android:hint="Expense"
             android:padding="5dp" />
@@ -58,6 +59,7 @@
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/edit_text_style"
+            android:textColor="?attr/text_color"
             android:fontFamily="@font/quicksand"
             android:hint="Amount"
             android:inputType="numberDecimal"
@@ -81,6 +83,7 @@
             android:background="@drawable/edit_text_style"
             android:elevation="5dp"
             android:inputType="text"
+            android:textColor="?attr/text_color"
             android:fontFamily="@font/quicksand"
             android:hint="Consumer Name"
             android:padding="5dp" />

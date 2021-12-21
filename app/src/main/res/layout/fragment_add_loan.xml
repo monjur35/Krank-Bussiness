@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
-    android:background="@drawable/ic_dorttt_01"
+    android:background="?attr/background_color"
     tools:context=".AddLoanFragment">
 
 
@@ -43,6 +43,7 @@
             android:elevation="5dp"
             android:inputType="text"
             android:fontFamily="@font/quicksand"
+            android:textColor="?attr/text_color"
             android:hint="Name"
             android:padding="5dp" />
 
@@ -65,6 +66,7 @@
             android:background="@drawable/edit_text_style"
             android:elevation="5dp"
             android:inputType="numberDecimal"
+            android:textColor="?attr/text_color"
             android:fontFamily="@font/quicksand"
             android:hint="Amount"
             android:padding="5dp" />
